@@ -1,0 +1,17 @@
+<h1>Register for workspace</h1>
+<form action="/users" method="post">
+  <% if @user.errors.full_messages.length > 0 %>
+    <% @user.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+  <%= auth_token %>
+  <input type="text" name="user[email]" placeholder="Email:" value= "<%= @user.email %>">
+  <input type="text" name="user[first_name]" placeholder="First Name:" value= "<%= @user.first_name %>">
+  <input type="text" name="user[last_name]" placeholder="Last Name:" value= "<%= @user.last_name %>">
+  <input type="text" name="user[profile_image_url]" placeholder="Profile Pic" value= "<%= @user.profile_image_url %>">
+  <input type="text" name="user[location]" placeholder="Location:" value= "<%= @user.location %>">
+  <input type="password" name="user[password]" placeholder="Enter a password: " value= "<%= @user.password %>">
+  <input type="submit" value="Create User">
+</form>
