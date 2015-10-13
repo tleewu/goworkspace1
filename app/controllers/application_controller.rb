@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def logout(user)
-    debugger;
     user.reset_session_token!
     session[:session_token] = nil
     redirect_to new_session_url
