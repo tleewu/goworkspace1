@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  # before_action :ensure_not_logged_in
+
   def new
     @user = User.new
   end
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password, :first_name, :last_name,
-                                 :location, :profile_image_url)
+                                 :location, :image_id)
   end
 
 end

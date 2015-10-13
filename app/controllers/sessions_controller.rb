@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+  # before_action :ensure_not_logged_in
+
   def new
     @user = User.new
   end
@@ -9,8 +12,10 @@ class SessionsController < ApplicationController
       login(@user)
     else
       @user = User.new(session_params)
+      @errors = "Invalid credentials. Please try again."
       render :new
     end
+
   end
 
   def destroy

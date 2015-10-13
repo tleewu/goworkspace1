@@ -11,18 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013161522) do
+ActiveRecord::Schema.define(version: 20151013203113) do
+
+  create_table "images", force: :cascade do |t|
+    t.string   "url",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",             null: false
-    t.string   "password_digest",   null: false
-    t.string   "session_token",     null: false
-    t.string   "first_name",        null: false
-    t.string   "last_name",         null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
     t.string   "location"
-    t.string   "profile_image_url"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "image_id"
   end
+
+  add_index "users", ["image_id"], name: "index_users_on_image_id"
 
 end

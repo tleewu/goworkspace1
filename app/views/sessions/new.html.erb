@@ -1,12 +1,7 @@
 <h1>Login to workspace</h1>
 
 <form action="/session" method="POST">
-  <% if @user.errors.full_messages.length > 0 %>
-    <% @user.errors.full_messages.each do |message| %>
-      <%= message %>
-    <% end %>
-  <% end %>
-
+  <%= @errors %><br>
   <%= auth_token %>
 
   Email: <input type="text" name="user[email]" value="<%= @user.email %>">
