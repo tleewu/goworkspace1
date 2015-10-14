@@ -1,16 +1,17 @@
 (function(root) {
   'use strict';
 
-  var _workspaces = [], CHANGE = "CHANGE";
+  var _markers = [],
+      CHANGE = "CHANGE";
 
-  var resetWorkspaces = function (workspaces) {
-    _workspaces = workspaces;
-    WorkspaceStore.changed();
+  var resetMarkers = function (workspaces) {
+    _markers = workspaces;
+    MarkerStore.changed();
   };
 
-  var WorkspaceStore = root.WorkspaceStore = $.extend({}, EventEmitter.prototype, {
+  var MarkerStore = root.MarkerStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
-      return _workspaces.slice();
+      return _markers.slice(0);
     },
 
     addChangeListener: function (callback) {
@@ -28,7 +29,7 @@
     dispatcherID: AppDispatcher.register(function (action) {
       switch (action.actionType){
         case WorkspaceConstants.WORKSPACES_RECEIVED:
-          resetWorkspaces(action.workspaces);
+          resetMarkers(action.workspaces);
           break;
       }
     })

@@ -4,7 +4,6 @@ var ApiUtil = {
       url: "api/workspaces",
       data: {bounds: bounds, workspace: workspace},
       success: function (workspaces) {
-        debugger;
         ApiActions.receiveAll(workspaces);
       }
     });

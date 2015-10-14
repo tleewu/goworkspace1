@@ -1,8 +1,9 @@
 (function(root) {
   'use strict';
 
-  var _mapCenter = {lat: null, lng: null}, CHANGE = "CHANGE";
-
+  var _mapCenter = {lat: null, lng: null},
+      CHANGE = "CHANGE";
+      
   var resetMapCenter = function (center) {
     _mapCenter = center;
     MapStore.changed();

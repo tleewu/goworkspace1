@@ -5,7 +5,9 @@
   var Map = root.Map = React.createClass({
 
     getInitialState: function () {
-      return ({lat: MapStore.getCenter().lat, lng: MapStore.getCenter().lat});
+      return ({lat: MapStore.getCenter().lat,
+               lng: MapStore.getCenter().lat,
+               markers: []});
     },
 
     updateSearch: function () {
@@ -21,6 +23,35 @@
       this.props.updateSearch(bounds);
     },
 
+    _updateMarkers: function () {
+
+      var newMarkers = MarkerStore.all();
+      var currentMarkers = this.state.markers.slice(0);
+      var updatedMarkers = [];
+      var that = this;
+
+      newMarkers.forEach(function (marker) {
+        if (currentMarkers.includes(marker)) {
+          var idx = currentMarkers.indexOf(marker);
+          currentMarkers.splice(idx,1);
+        } else {
+          debugger;
+          var placeMarker = new google.maps.Marker ({
+            map: that.map,
+            position: {lat: marker.lat, lng: marker.lng}
+          });
+          placeMarker.setMap(that.map);
+          updatedMarkers.push(placeMarker);
+        }
+      });
+
+      this.setState({markers: updatedMarkers});
+
+      currentMarkers.forEach (function (marker) {
+        marker.setMap(null);
+      });
+    },
+
     _setMapOnDOM: function () {
       var newCoords = MapStore.getCenter();
       this.setState({lat: newCoords.lat, lng: newCoords.lat});
@@ -31,16 +62,19 @@
         zoom: 13
       };
 
-      this.map = new google.maps.Map(map,mapOptions);
+      this.map = new google.maps.Map(map, mapOptions);
       this.map.addListener('idle', this.updateSearch);
+      MarkerStore.addChangeListener(this._updateMarkers);
     },
 
     componentDidMount: function () {
       var geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
             this.props.latLngLocation + "&key=AIzaSyCgpLQ3tKe3gpdI5oraHqYI6Wu0I4oLf-0";
-      MapStore.addChangeListener(this._setMapOnDOM);
-      ApiUtil.findGeocodeOfAddress(geocodeUrl);
 
+      //TODO: add the navigator geolocation API here?
+
+      ApiUtil.findGeocodeOfAddress(geocodeUrl);
+      MapStore.addChangeListener(this._setMapOnDOM);
     },
 
     componentWillReceiveProps: function (newProps) {
