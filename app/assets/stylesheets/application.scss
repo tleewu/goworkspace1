@@ -1,2 +1,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+#home-page {
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/goworkspace/image/upload/c_scale,q_49,w_4473/v1444789468/photo-1429051781835-9f2c0a9df6e4_rvaoqs.jpg");
+  background-repeat: no-repeat;
+}
+
+.user-form {
+  position: relative;
+  top: 200px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: 1px solid gray;
+}
+
+.input-large {
+  height: 35px;
+  color:black;
+  text-align: center;
+}
+
+.map {
+  height: 500px;
+  width: 500px;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+   font-size: 16px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+   font-size: 6px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+   font-size: 6px;
+}
+
+:-ms-input-placeholder {
+   text-align: center;
+   font-size: 6px;
+}

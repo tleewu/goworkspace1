@@ -18,7 +18,7 @@ $(function() {
 
   var routes = (
     <Route path="/" component={App}>
-      <Route path="search" component={WorkspaceIndex} />
+      <Route path="search" component={SearchResultsIndex} />
     </Route>
 
   );

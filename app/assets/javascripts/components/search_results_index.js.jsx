@@ -2,7 +2,7 @@
 
   "use strict"
 
-  var WorkspaceIndex = root.WorkspaceIndex = React.createClass({
+  var SearchResultsIndex = root.SearchResultsIndex = React.createClass({
     // getInitialState: function () {
     //   return ({workspace: []})
     // },
@@ -12,8 +12,8 @@
     // },
 
     // componentDidMount: function () {
-      // debugger;
-      //this.props.location.search
+    //   debugger;
+      // this.props.location.search
       // WorkspaceStore.addChangeListener(this_updateWorkspace);
       // ApiUtil.fetchAllWorkspaces();
     // },
@@ -21,7 +21,7 @@
     render: function () {
       return (
         <div>
-        Test
+          <Map latLngLocation = {this.props.location.query.location} />
         </div>
       )
     }
