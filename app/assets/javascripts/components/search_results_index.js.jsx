@@ -17,11 +17,16 @@
       // WorkspaceStore.addChangeListener(this_updateWorkspace);
       // ApiUtil.fetchAllWorkspaces();
     // },
+    updateSearch: function (bounds) {
+      var searchWorkspace = this.props.location.query.workspace;
+      ApiUtil.fetchAllWorkspaces(bounds, searchWorkspace);
+    },
 
     render: function () {
       return (
         <div>
-          <Map latLngLocation = {this.props.location.query.location} />
+          <Map latLngLocation = {this.props.location.query.location}
+           updateSearch = {this.updateSearch}/>
         </div>
       )
     }

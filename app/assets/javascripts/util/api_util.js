@@ -1,14 +1,13 @@
 var ApiUtil = {
-  fetchAllWorkspaces: function (workspaceData) {
-    debugger;
-    // $.ajax ({
-    //   url: "api/workspaces"
-    //   data: workspaceData,
-    //   success: function (workspaces) {
-    //     debugger;
-    //     ApiActions.receiveAll(workspaces);
-    //   }
-    // });
+  fetchAllWorkspaces: function (bounds, workspace) {
+    $.ajax ({
+      url: "api/workspaces",
+      data: {bounds: bounds, workspace: workspace},
+      success: function (workspaces) {
+        debugger;
+        ApiActions.receiveAll(workspaces);
+      }
+    });
   },
 
   findGeocodeOfAddress: function (geocodeUrl) {
