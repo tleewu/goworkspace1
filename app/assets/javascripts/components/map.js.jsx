@@ -35,7 +35,6 @@
           var idx = currentMarkers.indexOf(marker);
           currentMarkers.splice(idx,1);
         } else {
-          debugger;
           var placeMarker = new google.maps.Marker ({
             map: that.map,
             position: {lat: marker.lat, lng: marker.lng}
@@ -67,20 +66,34 @@
       MarkerStore.addChangeListener(this._updateMarkers);
     },
 
+    applyDefault: function (position) {
+      var lat = position.coords.latitude,
+          lng = position.coords.longitude;
+      var location = {lat: lat, lng: lng};
+      ApiActions.resetMapCenter(location);
+    },
+
     componentDidMount: function () {
-      var geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
-            this.props.latLngLocation + "&key=AIzaSyCgpLQ3tKe3gpdI5oraHqYI6Wu0I4oLf-0";
-
-      //TODO: add the navigator geolocation API here?
-
-      ApiUtil.findGeocodeOfAddress(geocodeUrl);
+      if (this.props.latLngLocation.length === 0){
+        navigator.geolocation.getCurrentPosition(this.applyDefault);
+      } else {
+        var geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
+              this.props.latLngLocation + "&key=AIzaSyCgpLQ3tKe3gpdI5oraHqYI6Wu0I4oLf-0";
+        ApiUtil.findGeocodeOfAddress(geocodeUrl);
+      }
       MapStore.addChangeListener(this._setMapOnDOM);
     },
 
     componentWillReceiveProps: function (newProps) {
-      var geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
-            newProps.latLngLocation + "&key=AIzaSyCgpLQ3tKe3gpdI5oraHqYI6Wu0I4oLf-0";
-      ApiUtil.findGeocodeOfAddress(geocodeUrl);
+
+      if (this.props.latLngLocation.length === 0){
+        navigator.geolocation.getCurrentPosition(this.applyDefault);
+      } else {
+        var geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
+              newProps.latLngLocation + "&key=AIzaSyCgpLQ3tKe3gpdI5oraHqYI6Wu0I4oLf-0";
+        ApiUtil.findGeocodeOfAddress(geocodeUrl);
+      }
+
     },
 
     render: function () {
