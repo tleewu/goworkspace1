@@ -1,0 +1,3 @@
+var WorkspaceConstants = {
+  WORKSPACES_RECEIVED: "WORKSPACES_RECEIVED"
+};

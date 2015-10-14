@@ -12,7 +12,6 @@
             </a>
             <SearchBar />
           </div>
-
         </nav>
       )
     }
