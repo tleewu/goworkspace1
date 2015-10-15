@@ -8,8 +8,8 @@ var ApiActions = {
 
   resetMapCenter: function (mapCenter) {
     AppDispatcher.dispatch ({
-      actionType: MapConstants.RESET_MAP_CENTER,
+      actionType: FilterConstants.UPDATE_MAP_CENTER,
       center: mapCenter
     });
   }
-}
+};

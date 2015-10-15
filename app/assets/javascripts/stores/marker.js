@@ -4,11 +4,6 @@
   var _markers = [],
       CHANGE = "CHANGE";
 
-  var resetMarkers = function (workspaces) {
-    _markers = workspaces;
-    MarkerStore.changed();
-  };
-
   var MarkerStore = root.MarkerStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
       return _markers.slice(0);
@@ -23,15 +18,19 @@
     },
 
     changed: function () {
+      console.log ("CHANGE");
       this.emit(CHANGE);
     },
 
     dispatcherID: AppDispatcher.register(function (action) {
       switch (action.actionType){
         case WorkspaceConstants.WORKSPACES_RECEIVED:
-          resetMarkers(action.workspaces);
-          break;
+          if (!(_markers.isEqual(action.workspaces))) {
+            _markers = action.workspaces;
+            MarkerStore.changed();
+            break;
+          }
       }
     })
-  })
+  });
 }(this));

@@ -4,15 +4,11 @@ $(function() {
   var Router = ReactRouter.Router;
   var Route = ReactRouter.Route;
   // var IndexRoute = ReactRouter.IndexRoute;
-  var divStyle = {
-    backgroundImage: 'none',
-    backgroundColor: 'red'
-  };
 
   var App = React.createClass({
     render: function () {
       return (
-        <div style={divStyle}>
+        <div>
           <NavBar />
           {this.props.children}
         </div>
@@ -29,6 +25,6 @@ $(function() {
 
   React.render(<Router>{routes}</Router>,
                 document.getElementById("workspace"));
-                
+
   $("body").css("background-image", "none");
 });

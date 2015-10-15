@@ -15,5 +15,6 @@ class Workspace < ActiveRecord::Base
              .where("lng > ?", lower_lng)
              .where("lng < ?", upper_lng)
              .where("name LIKE ?", "%" + workspace + "%")
+
   end
 end

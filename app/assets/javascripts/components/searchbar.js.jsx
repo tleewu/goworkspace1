@@ -22,7 +22,6 @@
 
     handleSubmit: function (e) {
       e.preventDefault();
-
       this.history.pushState(null, "search/", {workspace: this.state.workspace,
                                                location: this.state.location});
     },

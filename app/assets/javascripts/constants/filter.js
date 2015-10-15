@@ -1,0 +1,5 @@
+var FilterConstants = {
+  WIFI: "WIFI",
+  UPDATE_MAP_CENTER: "UPDATE_MAP_CENTER",
+  RESET_BOUNDS: "RESET_BOUNDS"
+};

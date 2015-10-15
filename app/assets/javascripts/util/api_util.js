@@ -1,8 +1,9 @@
 var ApiUtil = {
-  fetchAllWorkspaces: function (bounds, workspace) {
+  fetchAllWorkspaces: function (filters) {
+    // debugger;
     $.ajax ({
       url: "api/workspaces",
-      data: {bounds: bounds, workspace: workspace},
+      data: filters,
       success: function (workspaces) {
         ApiActions.receiveAll(workspaces);
       }
