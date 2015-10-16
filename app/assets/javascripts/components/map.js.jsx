@@ -5,6 +5,9 @@
   var Map = root.Map = React.createClass({
 
     _updateMarkers: function () {
+      // TODO: whenever I move the map super fast, sometimes the markers disappear.
+      // My theory is that setState is too slow
+
       var newMarkers = MarkerStore.all();
       var currentMarkers = this.state.markers.slice(0);
       var updatedMarkers = [];

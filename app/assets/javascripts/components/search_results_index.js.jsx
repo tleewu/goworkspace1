@@ -16,6 +16,7 @@
     },
 
     queryForWorkspaces: function () {
+      // debugger;
       var filters = FilterStore.all();
       ApiUtil.fetchAllWorkspaces(filters);
     },
