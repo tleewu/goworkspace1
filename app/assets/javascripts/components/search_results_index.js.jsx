@@ -43,11 +43,18 @@
 
     render: function () {
       return (
-        <div>
-          <WorkspaceIndex workspaces={this.state.workspaces}/>
-          <Map latLngLocation = {this.props.location.query.location}
-           updateBounds = {this.updateBounds}/>
-          <FilterBar updateFilter = {this.updateFilter} />
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-7">
+              <FilterBar updateFilter = {this.updateFilter} />
+              <WorkspaceIndex workspaces={this.state.workspaces}/>
+            </div>
+            <div className="col-md-5">
+              <Map latLngLocation = {this.props.location.query.location}
+               updateBounds = {this.updateBounds}/>
+            </div>
+          </div>
+
         </div>
       )
     }

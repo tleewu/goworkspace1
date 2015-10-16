@@ -26,7 +26,8 @@
 
     render: function () {
       return (
-        <div>
+        <div className="filter-bar">
+          <b id="filter-bar-title"> FILTER BY </b>
           <input type="checkbox" onChange={this.changeWifi}> Wifi </input>
           <input type="checkbox" onChange={this.changeOverall}> Overall </input>
           <input type="checkbox" onChange={this.changeSeating}> Seating </input>

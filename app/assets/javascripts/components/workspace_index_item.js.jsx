@@ -7,7 +7,7 @@
     render: function () {
       var workspace = this.props.workspace;
       return (
-        <div>
+        <div className="workspace-item">
           <div> Name: {workspace.name} </div>
           <div> Overall: {workspace.overall} </div>
           <div> Wifi: {workspace.wifi} </div>
