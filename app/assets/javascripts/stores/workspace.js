@@ -1,16 +1,12 @@
 (function(root) {
   'use strict';
 
-  var _workspaces = [], CHANGE = "CHANGE";
-
-  var resetWorkspaces = function (workspaces) {
-    _workspaces = workspaces;
-    WorkspaceStore.changed();
-  };
+  var _workspaces = [],
+      CHANGE = "CHANGE";
 
   var WorkspaceStore = root.WorkspaceStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
-      return _workspaces.slice();
+      return _workspaces.slice(0);
     },
 
     addChangeListener: function (callback) {
@@ -22,15 +18,19 @@
     },
 
     changed: function () {
+      console.log ("CHANGE");
       this.emit(CHANGE);
     },
 
     dispatcherID: AppDispatcher.register(function (action) {
       switch (action.actionType){
         case WorkspaceConstants.WORKSPACES_RECEIVED:
-          resetWorkspaces(action.workspaces);
-          break;
+          if (!(_workspaces.isEqual(action.workspaces))) {
+            _workspaces = action.workspaces;
+            WorkspaceStore.changed();
+            break;
+          }
       }
     })
-  })
+  });
 }(this));

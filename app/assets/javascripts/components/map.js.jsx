@@ -8,7 +8,7 @@
       // TODO: whenever I move the map super fast, sometimes the markers disappear.
       // My theory is that setState is too slow
 
-      var newMarkers = MarkerStore.all();
+      var newMarkers = WorkspaceStore.all();
       var currentMarkers = this.state.markers.slice(0);
       var updatedMarkers = [];
       var that = this;
@@ -80,7 +80,7 @@
 
     componentDidMount: function () {
       FilterStore.addChangeListener(this._setMapOnDOM);
-      MarkerStore.addChangeListener(this._updateMarkers);
+      WorkspaceStore.addChangeListener(this._updateMarkers);
 
       this.updateMap(this.props.latLngLocation);
     },
