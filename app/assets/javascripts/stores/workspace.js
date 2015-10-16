@@ -18,7 +18,6 @@
     },
 
     changed: function () {
-      console.log ("CHANGE");
       this.emit(CHANGE);
     },
 

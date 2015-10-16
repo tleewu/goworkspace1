@@ -6,7 +6,7 @@
 
             <%= auth_token %><br>
             <h3 style="letter-spacing: 5px"> <b> SIGN UP </b> </h3> <br>
-
+            
             <% if @user.errors.full_messages.length > 0 %>
               <% @user.errors.full_messages.each do |message| %>
                 <div style="color:red"> <%= message %> </div>

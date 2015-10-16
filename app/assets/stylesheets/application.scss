@@ -8,6 +8,15 @@ body {
   background-repeat: no-repeat;
 }
 
+nav {
+    margin-bottom: 0px;
+    height: 50px;
+}
+
+.navbar {
+  border-top: none;
+}
+
 .user-form {
   position: relative;
   top: 200px;
@@ -20,6 +29,22 @@ body {
   height: 35px;
   color:black;
   text-align: center;
+}
+
+.navbar-form {
+  margin:0px;
+}
+
+.search-bar {
+  padding-top: 0px;
+  height: 50px;
+  width: 400px;
+
+}
+.submit {
+  background-color: cornflowerblue;
+  width: 75px;
+  border: 1px solid gray;
 }
 
 .map {

@@ -29,11 +29,17 @@
     render: function () {
       return (
         <form className = "navbar-form navbar-left" onSubmit={this.handleSubmit}>
-          <input type = "text" placeholder = "Search for your favorite workspace"
-            value={this.state.workspace} onChange = {this.updateWorkspace}/>
-          <input type = "text" placeholder = "Where?" value = {this.state.location}
-            onChange={this.updateLocation}/>
-          <input type = "submit" value = "Find" />
+          <div className="form-group" >
+            <input className="search-bar" type="text" placeholder = "Search for your favorite workspace"
+              value={this.state.workspace} onChange = {this.updateWorkspace}/>
+          </div>
+          <div className="form-group">
+            <input className="search-bar" type="text" placeholder = "Where?" value = {this.state.location}
+              onChange={this.updateLocation}/>
+          </div>
+          <div className="form-group">
+            <input className="search-bar submit" type = "submit" value = "Search" />
+          </div>
         </form>
       )
     }

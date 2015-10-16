@@ -4,8 +4,16 @@
 
   var SearchResultsIndex = root.SearchResultsIndex = React.createClass({
 
+    getInitialState: function () {
+      return ({workspaces: WorkspaceStore.all()});
+    },
+
     componentDidMount: function () {
       FilterStore.addChangeListener(this.queryForWorkspaces);
+    },
+
+    updateWorkspaces: function () {
+      this.setState({workspaces: WorkspaceStore.all()});
     },
 
     queryForWorkspaces: function () {
@@ -36,7 +44,7 @@
     render: function () {
       return (
         <div>
-
+          <WorkspaceIndex workspaces={this.state.workspaces}/>
           <Map latLngLocation = {this.props.location.query.location}
            updateBounds = {this.updateBounds}/>
           <FilterBar updateFilter = {this.updateFilter} />
