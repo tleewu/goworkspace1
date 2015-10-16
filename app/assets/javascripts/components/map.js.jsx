@@ -56,7 +56,6 @@
         this.map = new google.maps.Map(map, mapOptions);
         this.map.addListener('idle', this.updateMapWhenMoved);
       }
-      // FilterStore.changeBounds(this.map.getBounds());
     },
 
     setDefaultLocation: function (position) {
@@ -75,10 +74,6 @@
         ApiUtil.findGeocodeOfAddress(geocodeUrl);
       }
     },
-
-    // queryForWorkspaces: function () {
-    //   var filters = FilterStore.all();
-    // },
 
     componentDidMount: function () {
       FilterStore.addChangeListener(this._setMapOnDOM);

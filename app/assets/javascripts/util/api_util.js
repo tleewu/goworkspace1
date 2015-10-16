@@ -3,7 +3,7 @@ var ApiUtil = {
     // debugger;
     $.ajax ({
       url: "api/workspaces",
-      data: filters,
+      data: {allFilters: filters},
       success: function (workspaces) {
         ApiActions.receiveAll(workspaces);
       }

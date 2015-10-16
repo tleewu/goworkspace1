@@ -1,11 +1,6 @@
 class Api::WorkspacesController < ApplicationController
   def index
-    unless params[:bounds]
-      @workspaces = Workspace.all
-    else
-      workspace = params[:workspaceName] || ''
-      @workspaces = Workspace.find_all(params[:bounds], workspace)
-    end
+    @workspaces = Workspace.find_all(params[:allFilters])
     render json: @workspaces
   end
 

@@ -50,6 +50,26 @@
           FilterStore.changeBounds(action.bounds);
           FilterStore.changed();
           break;
+        case FilterConstants.RESET_WIFI:
+          _filters.wifi = (!_filters.wifi);
+          FilterStore.changed();
+          break;
+        case FilterConstants.RESET_HOURS:
+          _filters.hours = (!_filters.hours);
+          FilterStore.changed();
+          break;
+        case FilterConstants.RESET_POWER:
+          _filters.power = (!_filters.power);
+          FilterStore.changed();
+          break;
+        case FilterConstants.RESET_SEATING:
+          _filters.seating = (!_filters.seating);
+          FilterStore.changed();
+          break;
+        case FilterConstants.RESET_OVERALL:
+          _filters.overall = (!_filters.overall);
+          FilterStore.changed();
+          break;
       }
     })
   });
