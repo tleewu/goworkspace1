@@ -6,6 +6,7 @@ class Workspace < ActiveRecord::Base
 
   has_many :workspace_images
   belongs_to :image
+  has_many :reviews
 
   def open_now?
     #TODO: needs to be refactored...please.
@@ -38,6 +39,19 @@ class Workspace < ActiveRecord::Base
     end
 
     return false
+  end
+
+  def self.update_ratings (parameters)
+    workspace = self.find_by_id (paramaters[:workspace_id])
+    num_of_reviews = workspace.reviews.length
+    # update overall rating - this attribute is required.
+    workspace.overall = (workspace.overall * (num_of_reviews - 1) + parameters[:overall]) / num_of_reviews
+
+    if parameters[:wifi]
+      workspace.wifi = (workspace.num_wifi_ratings * workspace.wifi + parameters[:wifi]) / workspace.wifi
+      workspace.num_wifi_ratings += 1
+    end
+    
   end
 
   def self.find_all(filters)

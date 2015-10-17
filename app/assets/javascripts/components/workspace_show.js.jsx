@@ -15,7 +15,7 @@
       var workspaces = WorkspaceStore.all();
       for (var i = 0; i < workspaces.length; i++ ) {
         if (workspaces[i].id === workspaceId) {
-          return workspace[i];
+          return workspaces[i];
         }
       }
     },
@@ -27,6 +27,8 @@
     render: function () {
       return (
         <div>
+          <WorkspaceShowCarousel images={this.state.workspace.images} />
+
           { this.state.workspace }
         </div>
       )

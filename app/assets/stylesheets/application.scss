@@ -15,6 +15,7 @@ nav {
 
 .navbar {
   border-top: none;
+  margin-bottom:0px;
 }
 
 .user-form {
@@ -53,6 +54,7 @@ nav {
 }
 
 .filter-bar {
+  margin-top: 20px;
   background-color: #f0f0f0;
   padding: 5px 5px;
   border: 1px solid black;
@@ -72,6 +74,12 @@ nav {
     height: 100%;
     border: 1px solid black;
   }
+}
+
+.workspace-carousel {
+  height: 200px;
+  border: 1px solid black;
+  border-top: none;
 }
 
 ::-webkit-input-placeholder {

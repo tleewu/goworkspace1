@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :workspace_images
   has_one :image
+  has_many :reviews
 
   attr_reader :password
 
