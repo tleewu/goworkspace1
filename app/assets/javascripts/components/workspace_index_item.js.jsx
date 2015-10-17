@@ -8,11 +8,18 @@
       var workspace = this.props.workspace;
       return (
         <div className="workspace-item">
-          <div> Name: {workspace.name} </div>
-          <div> Overall: {workspace.overall} </div>
-          <div> Wifi: {workspace.wifi} </div>
-          <div> Power: {workspace.power} </div>
-          <div> Seating: {workspace.seating} </div>
+          <div className="col-md-2" id="workspace-profile-picture">
+            X
+          </div>
+          <div className="col-md-3">
+            <div> {workspace.name} </div>
+          </div>
+          <div className="col-md-2">
+            <div> Overall: {workspace.overall} </div>
+            <div> Wifi: {workspace.wifi} </div>
+            <div> Power: {workspace.power} </div>
+            <div> Seating: {workspace.seating} </div>
+          </div>
         </div>
       )
     }

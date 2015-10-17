@@ -55,7 +55,7 @@ nav {
 .filter-bar {
   background-color: #f0f0f0;
   padding: 5px 5px;
-  border-bottom: 1px solid gray;
+  border: 1px solid black;
   #filter-bar-title {
     letter-spacing: 2px;
     margin-right: 50px;
@@ -65,9 +65,13 @@ nav {
 .workspace-item {
   height: 100px;
   width: 100%;
-  border: 1px solid gray;
+  border: 1px solid black;
   border-top: none;
-  padding: 10px 10px;
+  padding: 5px 5px;
+  #workspace-profile-picture {
+    height: 100%;
+    border: 1px solid black;
+  }
 }
 
 ::-webkit-input-placeholder {
