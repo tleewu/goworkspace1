@@ -5,7 +5,7 @@ class Workspace < ActiveRecord::Base
     less_than_or_equal_to: 5}
 
   has_many :workspace_images
-  has_one :image
+  belongs_to :image
 
   def open_now?
     #TODO: needs to be refactored...please.
