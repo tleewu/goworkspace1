@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :workspace_images
+  has_one :image
+
   attr_reader :password
 
   def reset_session_token!

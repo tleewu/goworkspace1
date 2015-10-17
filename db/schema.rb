@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013224705) do
+ActiveRecord::Schema.define(version: 20151017071355) do
 
   create_table "images", force: :cascade do |t|
     t.string   "url",        null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20151013224705) do
 
   add_index "users", ["image_id"], name: "index_users_on_image_id"
 
+  create_table "workspace_images", force: :cascade do |t|
+    t.string   "url",          null: false
+    t.integer  "workspace_id", null: false
+    t.integer  "user_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "workspace_images", ["user_id", "workspace_id"], name: "index_workspace_images_on_user_id_and_workspace_id"
+
   create_table "workspaces", force: :cascade do |t|
     t.string   "name",                        null: false
     t.float    "lat",                         null: false
@@ -47,6 +57,9 @@ ActiveRecord::Schema.define(version: 20151013224705) do
     t.time     "weekend_closing",             null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "image_id"
   end
+
+  add_index "workspaces", ["image_id"], name: "index_workspaces_on_image_id"
 
 end
