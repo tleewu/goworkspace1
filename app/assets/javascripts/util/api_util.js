@@ -5,7 +5,6 @@ var ApiUtil = {
       url: "api/workspaces",
       data: {allFilters: filters},
       success: function (workspaces) {
-        debugger;
         ApiActions.receiveAll(workspaces);
       }
     });

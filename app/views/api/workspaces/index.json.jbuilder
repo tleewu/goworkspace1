@@ -12,7 +12,13 @@ json.array!(@workspaces) do |workspace|
   json.weekend_opening workspace.weekend_opening
   json.weekend_closing workspace.weekend_closing
 
-  json.image_url workspace.image.url
+  json.image_url do
+    if workspace.image
+      workspace.image.url
+    else
+      ""
+    end
+  end
 
   json.images do
     json.array!(workspace.workspace_images) do |json, image|

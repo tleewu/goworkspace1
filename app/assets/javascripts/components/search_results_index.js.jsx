@@ -12,6 +12,10 @@
       FilterStore.addChangeListener(this.queryForWorkspaces);
     },
 
+    componentWillUnmount: function () {
+      FilterStore.removeChangeListener(this.queryForWorkspaces);
+    },
+
     updateWorkspaces: function () {
       this.setState({workspaces: WorkspaceStore.all()});
     },

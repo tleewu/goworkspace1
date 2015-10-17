@@ -2,11 +2,12 @@
 
   "use strict"
 
-  var WorkspaceShowIndex = root.WorkspaceShowIndex = React.createClass({
+  var WorkspaceShow = root.WorkspaceShow = React.createClass({
 
     getInitialState: function () {
-      var workspaceId = this.props.params.workspaceId
-      var workspace = this._findWorkspaceById(workspaceId) || {}
+      var workspaceId = parseInt(this.props.params.workspaceId);
+      var workspace = this._findWorkspaceById(workspaceId) || {};
+      debugger;
       return ({workspace: workspace});
     },
 
@@ -25,18 +26,8 @@
 
     render: function () {
       return (
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-7">
-              <FilterBar updateFilter = {this.updateFilter} />
-              <WorkspaceIndex workspaces={this.state.workspaces}/>
-            </div>
-            <div className="col-md-5">
-              <Map latLngLocation = {this.props.location.query.location}
-               updateBounds = {this.updateBounds}/>
-            </div>
-          </div>
-
+        <div>
+          { this.state.workspace }
         </div>
       )
     }

@@ -11,6 +11,10 @@
       WorkspaceStore.addChangeListener(this._updateWorkspaces);
     },
 
+    componentWillUnmount: function () {
+      WorkspaceStore.removeChangeListener(this._updateWorkspaces);
+    },
+
     _updateWorkspaces: function () {
       this.setState({workspaces: WorkspaceStore.all()});
     },

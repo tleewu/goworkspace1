@@ -85,6 +85,11 @@
       this.updateMap(this.props.latLngLocation);
     },
 
+    componentWillUnmount: function () {
+      FilterStore.removeChangeListener(this._setMapOnDOM);
+      WorkspaceStore.removeChangeListener(this._updateMarkers);
+    },
+
     componentWillReceiveProps: function (newProps) {
       this.updateMap(newProps.latLngLocation);
     },
