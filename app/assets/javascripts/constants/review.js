@@ -1,0 +1,4 @@
+var ReviewConstants = {
+  UPDATE_REVIEWS: "UPDATE_REVIEWS",
+  ALL_REVIEWS: "ALL_REVIEWS"
+};

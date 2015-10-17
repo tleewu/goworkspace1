@@ -2,7 +2,6 @@
 
   "use strict"
 
-
   var SearchBar = root.SearchBar = React.createClass({
     mixins: [ReactRouter.History],
 

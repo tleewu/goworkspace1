@@ -25,4 +25,10 @@ json.array!(@workspaces) do |workspace|
       json.url image.url
     end
   end
+
+  json.reviews workspace.reviews, :body, :overall, :wifi, :power, :seating,
+                                  :pricing, :updated_at
+  #TODO: I need to figure out how to nest the user into the reviews. Is this an
+  # n+1 query? 
+
 end

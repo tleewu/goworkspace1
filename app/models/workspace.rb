@@ -41,17 +41,34 @@ class Workspace < ActiveRecord::Base
     return false
   end
 
-  def self.update_ratings (parameters)
-    workspace = self.find_by_id (paramaters[:workspace_id])
-    num_of_reviews = workspace.reviews.length
-    # update overall rating - this attribute is required.
-    workspace.overall = (workspace.overall * (num_of_reviews - 1) + parameters[:overall]) / num_of_reviews
-
-    if parameters[:wifi]
-      workspace.wifi = (workspace.num_wifi_ratings * workspace.wifi + parameters[:wifi]) / workspace.wifi
-      workspace.num_wifi_ratings += 1
+  def update_rating_for (rating, new_rating)
+    case (rating)
+    when (:wifi)
+      num_rating_reviews = self.num_wifi_ratings
+    when (:power)
+      num_rating_reviews = self.num_power_ratings
+    when (:seating)
+      num_rating_reviews = self.num_seating_ratings
+    when (:pricing)
+      num_rating_reviews = self.num_pricing_ratings
     end
-    
+
+    self[rating] = (num_rating_reviews * self[rating] + new_rating) / (num_rating_reviews + 1)
+    num_rating_reviews += 1
+  end
+
+  def self.update_ratings (parameters)
+    workspace = self.find_by_id (parameters[:workspace_id])
+    num_of_reviews = workspace.reviews.length
+
+    workspace.overall = (workspace.overall * (num_of_reviews - 1) + parameters[:overall].to_f) / num_of_reviews
+
+    workspace.update_rating_for(:wifi, parameters[:wifi].to_f) if parameters[:wifi]
+    workspace.update_rating_for(:power, parameters[:power].to_f) if parameters[:power]
+    workspace.update_rating_for(:seating, parameters[:seating].to_f) if parameters[:seating]
+    workspace.update_rating_for(:pricing, parameters[:pricing].to_f) if parameters[:pricing]
+
+    workspace.save!
   end
 
   def self.find_all(filters)

@@ -17,5 +17,17 @@ var ApiUtil = {
         ApiActions.resetMapCenter (result.results[0].geometry.location);
       }
     });
+  },
+
+  createReview: function (reviewParams) {
+    $.ajax ({
+      url: "api/reviews",
+      method: "post",
+      data: {review: reviewParams},
+      success: function (review) {
+        debugger;
+        ApiActions.updateReviews (review);
+      }
+    })
   }
 };
