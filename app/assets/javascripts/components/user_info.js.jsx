@@ -23,11 +23,8 @@
     render: function () {
 
       return (
-        <div>
-          Welcome,
-          {
-            this.state.currentUser.last_name
-          }
+        <div id="user-info">
+          Welcome, {this.state.currentUser.first_name}!
         </div>
       )
     }

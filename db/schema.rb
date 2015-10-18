@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018000832) do
+ActiveRecord::Schema.define(version: 20151018205950) do
 
   create_table "images", force: :cascade do |t|
     t.string   "url",        null: false
@@ -35,18 +35,16 @@ ActiveRecord::Schema.define(version: 20151018000832) do
   add_index "reviews", ["user_id", "workspace_id"], name: "index_reviews_on_user_id_and_workspace_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.string   "first_name",      null: false
-    t.string   "last_name",       null: false
+    t.string   "email",                                                                                                                   null: false
+    t.string   "password_digest",                                                                                                         null: false
+    t.string   "session_token",                                                                                                           null: false
+    t.string   "first_name",                                                                                                              null: false
+    t.string   "last_name",                                                                                                               null: false
     t.string   "location"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "image_id"
+    t.datetime "created_at",                                                                                                              null: false
+    t.datetime "updated_at",                                                                                                              null: false
+    t.string   "profile_image_url", default: "http://res.cloudinary.com/goworkspace/image/upload/v1445202159/default_profile_gnluy2.jpg"
   end
-
-  add_index "users", ["image_id"], name: "index_users_on_image_id"
 
   create_table "workspace_images", force: :cascade do |t|
     t.string   "url",          null: false
