@@ -16,7 +16,7 @@
               <div className="col-md-9" id="search-bar-properties">
                 <SearchBar />
               </div>
-              <div className="col-md-2" id="logo-bar-properties">
+              <div className="col-md-2" id="user-info">
                 <UserInfo />
               </div>
             </div>

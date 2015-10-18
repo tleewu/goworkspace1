@@ -74,7 +74,12 @@ nav {
 }
 
 #user-info {
-  padding-top: 15px;
+  padding-top: 12px;
+  padding-bottom: 13px;
+  &:hover {
+    background-color: wheat;
+    color: black;
+  }
 }
 
 #profile-image {
