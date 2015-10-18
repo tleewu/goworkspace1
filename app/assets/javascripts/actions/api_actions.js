@@ -25,5 +25,12 @@ var ApiActions = {
       actionType: ReviewConstants.ALL_REVIEWS,
       reviews: reviews
     })
+  },
+
+  initializeWorkspace: function (workspace) {
+    AppDispatcher.dispatch ({
+      actionType: WorkspaceConstants.ONE_WORKSPACE_RECEIVED,
+      workspace: workspace
+    })
   }
 };

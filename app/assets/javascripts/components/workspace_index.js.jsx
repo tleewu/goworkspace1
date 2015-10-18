@@ -20,8 +20,7 @@
     },
 
     render: function () {
-      //TODO: why is it rendering multiple times??? put in a debugger.
-
+      
       return (
         <div>
           {

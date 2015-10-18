@@ -6,7 +6,11 @@
 
   var ReviewStore = root.ReviewStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
-      return _reviews.slice(0);
+      if (_reviews) {
+        return _reviews.slice(0);
+      } else {
+        return [];
+      }
     },
 
     addChangeListener: function (callback) {

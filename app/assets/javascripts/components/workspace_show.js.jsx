@@ -9,7 +9,6 @@
   var WorkspaceShow = root.WorkspaceShow = React.createClass({
 
     getInitialState: function () {
-      debugger;
       var workspaceId = parseInt(this.props.params.workspaceId);
       var workspace = this._findWorkspaceById(workspaceId) || {};
       return ({workspace: workspace});
@@ -22,6 +21,9 @@
           return workspaces[i];
         }
       }
+
+      ApiUtil.fetchOneWorkspace(workspaceId);
+      return {};
     },
 
     _createReview: function (reviewDetails) {
@@ -29,8 +31,19 @@
       ApiUtil.createReview(reviewDetails);
     },
 
+    _updateWorkspaceIfNotInStore: function () {
+      this.setState({workspace: WorkspaceItemStore.all()});
+    },
+
     componentDidMount: function () {
+      if (!this.state.workspace.id) {
+        WorkspaceItemStore.addChangeListener(this._updateWorkspaceIfNotInStore);
+      }
       ApiActions.listOutAllReviews(this.state.workspace.reviews);
+    },
+
+    componentWillUnmount: function () {
+      WorkspaceStore.removeChangeListener(this._updateWorkspaceIfNotInStore);
     },
 
     render: function () {

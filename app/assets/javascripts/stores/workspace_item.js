@@ -1,12 +1,12 @@
 (function(root) {
   'use strict';
 
-  var _workspaces = [],
+  var _workspace = {},
       CHANGE = "CHANGE";
 
-  var WorkspaceStore = root.WorkspaceStore = $.extend({}, EventEmitter.prototype, {
+  var WorkspaceItemStore = root.WorkspaceItemStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
-      return _workspaces.slice(0);
+      return _workspace;
     },
 
     addChangeListener: function (callback) {
@@ -23,12 +23,10 @@
 
     dispatcherID: AppDispatcher.register(function (action) {
       switch (action.actionType){
-        case WorkspaceConstants.WORKSPACES_RECEIVED:
-          if (!(_workspaces.isEqual(action.workspaces))) {
-            _workspaces = action.workspaces;
-            WorkspaceStore.changed();
-            break;
-          }
+        case WorkspaceConstants.ONE_WORKSPACE_RECEIVED:
+          _workspace = action.workspace;
+          WorkspaceItemStore.changed();
+          break;
       }
     })
   });

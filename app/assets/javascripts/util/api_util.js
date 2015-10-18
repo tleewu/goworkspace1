@@ -27,6 +27,15 @@ var ApiUtil = {
       success: function (review) {
         ApiActions.updateReviews (review);
       }
-    })
+    });
+  },
+
+  fetchOneWorkspace: function (workspaceId) {
+    $.ajax ({
+      url: "api/workspaces/" + workspaceId,
+      success: function (workspace) {
+        ApiActions.initializeWorkspace(workspace);
+      }
+    });
   }
 };
