@@ -25,7 +25,6 @@ var ApiUtil = {
       method: "post",
       data: {review: reviewParams},
       success: function (review) {
-        debugger;
         ApiActions.updateReviews (review);
       }
     })

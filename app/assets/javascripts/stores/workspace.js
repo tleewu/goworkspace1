@@ -18,6 +18,7 @@
     },
 
     changed: function () {
+      debugger;
       this.emit(CHANGE);
     },
 

@@ -9,6 +9,7 @@
   var WorkspaceShow = root.WorkspaceShow = React.createClass({
 
     getInitialState: function () {
+      debugger;
       var workspaceId = parseInt(this.props.params.workspaceId);
       var workspace = this._findWorkspaceById(workspaceId) || {};
       return ({workspace: workspace});
@@ -36,7 +37,20 @@
       return (
         <div>
           <WorkspaceShowCarousel images={this.state.workspace.images} />
-          { this.state.workspace }
+          <br/><br/>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-2 col-md-offset-5">
+                <b id="workspace-info-name"> {this.state.workspace.name} </b>
+                <div> Overall: {this.state.workspace.overall} </div>
+                <div> Wifi: {this.state.workspace.wifi} </div>
+                <div> Power: {this.state.workspace.power} </div>
+                <div> Seating: {this.state.workspace.seating} </div>
+                <div> Pricing: {this.state.workspace.seating} </div>
+              </div>
+            </div>
+          </div>
+          <br/><br/>
           <ReviewForm createReview={this._createReview} />
           <ReviewIndex />
         </div>

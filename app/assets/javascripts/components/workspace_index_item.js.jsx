@@ -1,4 +1,5 @@
 (function(root){
+  var Link = ReactRouter.Link;
 
   "use strict";
 
@@ -6,13 +7,14 @@
 
     render: function () {
       var workspace = this.props.workspace;
+      var workspace_url = "/workspace/" + workspace.id;
       return (
         <div className="workspace-item">
           <div className="col-md-2" id="workspace-profile-picture">
             X
           </div>
           <div className="col-md-3">
-            <div> {workspace.name} </div>
+            <Link to={workspace_url}> {workspace.name} </Link>
           </div>
           <div className="col-md-2">
             <div> Overall: {workspace.overall} </div>
