@@ -4,7 +4,7 @@
 
   var ReviewForm = root.ReviewForm = React.createClass({
     getInitialState: function () {
-      return ({body: '', overall: null, wifi: null, power: null, seating: null, pricing: null})
+      return ({body: '', overall: null, wifi: null, power: null, seating: null, pricing: null});
     },
 
     updateBody: function (e) {
@@ -32,17 +32,17 @@
       this.setState({seating: e.currentTarget.value});
     },
 
-    updatPricing: function (e) {
+    updatePricing: function (e) {
       e.preventDefault();
       this.setState({pricing: e.currentTarget.value});
     },
 
     handleSubmit: function (e) {
       e.preventDefault();
-      this.setState({body: '', overall: null, wifi: null, power: null, seating: null, pricing: null});
       this.props.createReview({body: this.state.body, overall: this.state.overall,
                                wifi: this.state.wifi, power: this.state.power,
-                               seating: this.state.seating, pricing: this.state.prcing});
+                               seating: this.state.seating, pricing: this.state.pricing});
+      this.setState({body: '', overall: null, wifi: null, power: null, pricing: null, seating: null });
     },
 
     render: function () {

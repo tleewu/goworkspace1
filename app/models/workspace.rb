@@ -45,16 +45,20 @@ class Workspace < ActiveRecord::Base
     case (rating)
     when (:wifi)
       num_rating_reviews = self.num_wifi_ratings
+      self.num_wifi_ratings += 1
     when (:power)
       num_rating_reviews = self.num_power_ratings
+      self.num_power_ratings += 1
     when (:seating)
       num_rating_reviews = self.num_seating_ratings
+      self.num_seating_ratings += 1
     when (:pricing)
       num_rating_reviews = self.num_pricing_ratings
+      self.num_pricing_ratings += 1
     end
 
     self[rating] = (num_rating_reviews * self[rating] + new_rating) / (num_rating_reviews + 1)
-    num_rating_reviews += 1
+
   end
 
   def self.update_ratings (parameters)
