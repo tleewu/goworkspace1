@@ -32,5 +32,12 @@ var ApiActions = {
       actionType: WorkspaceConstants.ONE_WORKSPACE_RECEIVED,
       workspace: workspace
     })
+  },
+
+  receiveCurrentUser: function (user) {
+    AppDispatcher.dispatch ({
+      actionType: UserConstants.RECEIVED_USER,
+      user: user
+    })
   }
 };

@@ -1,6 +1,5 @@
 var ApiUtil = {
   fetchAllWorkspaces: function (filters) {
-    // debugger;
     $.ajax ({
       url: "api/workspaces",
       data: {allFilters: filters},
@@ -35,6 +34,15 @@ var ApiUtil = {
       url: "api/workspaces/" + workspaceId,
       success: function (workspace) {
         ApiActions.initializeWorkspace(workspace);
+      }
+    });
+  },
+
+  fetchCurrentUser: function () {
+    $.ajax({
+      url: "users/current_user/",
+      success: function (user) {
+        ApiActions.receiveCurrentUser(user);
       }
     });
   }

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     #how to get current user information.
   end
 
+  get 'users/current_user', to: 'users#current'
   root to: 'static_pages#index'
 end

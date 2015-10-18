@@ -7,10 +7,19 @@
       return (
         <nav className = "navbar navbar-default">
           <div className = "container-fluid">
-            <a className="navbar-brand" href="/">
-              workspace
-            </a>
-            <SearchBar />
+            <div className="row">
+              <div className="col-md-1" id="logo-bar-properties">
+                <a className="navbar-brand" href="/">
+                  w
+                </a>
+              </div>
+              <div className="col-md-9" id="search-bar-properties">
+                <SearchBar />
+              </div>
+              <div className="col-md-2" id="logo-bar-properties">
+                <UserInfo />
+              </div>
+            </div>
           </div>
         </nav>
       )

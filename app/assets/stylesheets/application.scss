@@ -39,16 +39,25 @@ nav {
 .search-bar {
   padding-top: 0px;
   height: 50px;
-  width: 400px;
-
+  width: 100%;
 }
+
+#search-bar-properties {
+  padding: 0px 0px;
+}
+
+#logo-bar-properties {
+  padding-left: 15px;
+}
+
 .submit {
   background-color: cornflowerblue;
-  width: 75px;
+  width: 100%;
   border: 1px solid gray;
 }
 
 .map {
+  margin-top: 20px;
   height: 500px;
   width: 500px;
 }

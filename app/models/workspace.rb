@@ -86,7 +86,8 @@ class Workspace < ActiveRecord::Base
       upper_lng = bounds[:northEast][:lng]
 
 
-      all_workspaces = Workspace.where("lat > ?", lower_lat)
+      all_workspaces = Workspace.includes(:workspace_images)
+                                .where("lat > ?", lower_lat)
                                 .where("lat < ?", upper_lat)
                                 .where("lng > ?", lower_lng)
                                 .where("lng < ?", upper_lng)
