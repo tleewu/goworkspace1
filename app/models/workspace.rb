@@ -8,39 +8,17 @@ class Workspace < ActiveRecord::Base
   belongs_to :image
   has_many :reviews
 
-  def open_now?
-    #TODO: needs to be refactored...please.
+  def self.select_open_spots
     current_time = Time.now
 
     if !current_time.saturday? && !current_time.sunday?
-      if current_time.hour >= self.weekday_opening.hour && current_time.hour <= self.weekday_closing.hour
-        if current_time.hour == self.weekday_opening.hour
-          if current_time.min < self.weekday_opening.min
-            return false
-          end
-        elsif current_time.hour == self.weekday_closing.hour
-          if current_time.min > self.weekday_closing.min
-            return false
-          end
-        end
-        return true
-      end
-    else
-      if current_time.hour >= self.weekend_opening.hour && current_time.hour <= self.weekend_closing.hour
-        if current_time.hour == self.weekend_opening.hour
-          if current_time.min < self.weekend_opening.min
-            return false
-          end
-        elsif current_time.hour == self.weekend_closing.hour
-          if current_time.min > self.weekend_closing.min
-            return false
-          end
-        end
-        return true
-      end
-    end
+      return self.where("extract(hour from weekday_opening) <= ?", current_time.hour)
+                 .where("extract(hour from weekday_closing) >= ?", current_time.hour)
 
-    return false
+    else
+      return self.where("extract(hour from weekend_opening) <= ?", current_time.hour)
+                 .where("extract(hour from weekend_closing) >= ?", current_time.hour)
+    end
   end
 
   def update_rating_for (rating, new_rating)
@@ -77,6 +55,8 @@ class Workspace < ActiveRecord::Base
     workspace.save!
   end
 
+
+
   def self.find_all(filters)
 
     #TODO: how to parse json string "true" to ruby true, check out line 60
@@ -99,10 +79,11 @@ class Workspace < ActiveRecord::Base
                                 .where("lng < ?", upper_lng)
                                 .where("name LIKE ?", "%" + workspace + "%")
 
-     if filters[:openNow] == 'true'
-       all_workspaces = all_workspaces.select{|workspace| workspace.open_now?}
-     end
 
+     if filters[:openNow] == 'true'
+      #  all_workspaces = all_workspaces.select{|workspace| workspace.open_now?}
+      all_workspaces = all_workspaces.select_open_spots
+     end
      if filters[:overall] == 'true'
        all_workspaces = all_workspaces.order(overall: :desc)
      end
