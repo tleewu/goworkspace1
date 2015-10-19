@@ -4,7 +4,7 @@
 
   var WorkspaceIndex = root.WorkspaceIndex = React.createClass({
     getInitialState: function () {
-      return ({workspaces: WorkspaceStore.all()})
+      return ({workspaces: WorkspaceStore.all()});
     },
 
     componentDidMount: function () {
@@ -20,7 +20,7 @@
     },
 
     render: function () {
-      
+
       return (
         <div>
           {

@@ -3,7 +3,7 @@ var ApiActions = {
     AppDispatcher.dispatch({
       actionType: WorkspaceConstants.WORKSPACES_RECEIVED,
       workspaces: workspaces
-    })
+    });
   },
 
   resetMapCenter: function (mapCenter) {
@@ -24,20 +24,20 @@ var ApiActions = {
     AppDispatcher.dispatch ({
       actionType: ReviewConstants.ALL_REVIEWS,
       reviews: reviews
-    })
+    });
   },
 
   initializeWorkspace: function (workspace) {
     AppDispatcher.dispatch ({
       actionType: WorkspaceConstants.ONE_WORKSPACE_RECEIVED,
       workspace: workspace
-    })
+    });
   },
 
   receiveCurrentUser: function (user) {
     AppDispatcher.dispatch ({
       actionType: UserConstants.RECEIVED_USER,
       user: user
-    })
+    });
   }
 };

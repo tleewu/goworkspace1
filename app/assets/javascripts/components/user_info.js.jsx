@@ -27,7 +27,7 @@
           Welcome, {this.state.currentUser.first_name}!
           <img src={this.state.currentUser.profile_image_url} className='img-circle' height="25px" width="25px" id='profile-image' />
         </div>
-      )
+      );
     }
   });
 }(this));

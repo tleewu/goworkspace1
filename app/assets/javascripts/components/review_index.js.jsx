@@ -4,7 +4,7 @@
 
   var ReviewIndex = root.ReviewIndex = React.createClass({
     getInitialState: function () {
-      return {reviews: []}
+      return {reviews: []};
     },
 
     _updateAllReviews: function () {

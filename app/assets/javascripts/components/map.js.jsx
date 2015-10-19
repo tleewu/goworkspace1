@@ -95,7 +95,9 @@
     },
 
     render: function () {
-      return (<div className="map" ref="map"/>);
+      return (
+        <div className="map" ref="map"/>
+      );
     }
   });
 }(this));
