@@ -9,7 +9,8 @@
                   openNow: false,
                   seating: false,
                   overall: false,
-                  power: false
+                  power: false,
+                  pricing: false
                 },
       CHANGE = "CHANGE";
 
@@ -68,6 +69,10 @@
           break;
         case FilterConstants.RESET_OVERALL:
           _filters.overall = !(_filters.overall);
+          FilterStore.changed();
+          break;
+        case FilterConstants.RESET_PRICING:
+          _filters.pricing = !(_filters.pricing);
           FilterStore.changed();
           break;
       }

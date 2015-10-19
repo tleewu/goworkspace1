@@ -1,5 +1,6 @@
 json.extract! workspace, :id, :name, :lat, :lng, :overall, :wifi, :power, :weekday_opening,
-                         :weekday_closing, :weekend_opening, :weekend_closing
+                         :weekday_closing, :weekend_opening, :weekend_closing,
+                         :seating, :pricing
 
 json.image_url do
   if workspace.image

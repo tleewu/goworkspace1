@@ -9,12 +9,12 @@
 Workspace.create!({name: 'Koala Tea', lat: 34.062492, lng: -118.447672, overall: 4,
                    wifi: 4, power: 4, seating: 3, weekday_opening: "08:00:00", weekday_closing:
                   "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
-Workspace.create!({name: 'Bean Bag', lat: 37.775010, lng: -122.437842, overall: 4,
-                   wifi: 4, power: 4, seating: 2, weekday_opening: "08:00:00", weekday_closing:
+Workspace.create!({name: 'Bean Bag', lat: 37.775010, lng: -122.437842, overall: 1,
+                   wifi: 1, power: 1, seating: 1, weekday_opening: "08:00:00", weekday_closing:
                   "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
 Workspace.create!({name: 'Starbucks', lat: 39.276736, lng: -76.830851, overall: 4,
                    wifi: 4, power: 4, seating: 3, weekday_opening: "08:00:00", weekday_closing:
                   "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
-Workspace.create!({name: 'Starbucks', lat: 34.062478, lng: -118.447450, overall: 4,
-                   wifi: 4, power: 4, seating: 3, weekday_opening: "21:00:00", weekday_closing:
-                  "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
+Workspace.create!({name: 'Starbucks', lat: 34.062478, lng: -118.447450, overall: 1,
+                   wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
+                  "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})

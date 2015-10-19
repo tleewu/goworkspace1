@@ -39,6 +39,9 @@
         case (FilterConstants.SEATING):
           FilterActions.resetSeating();
           break;
+        case (FilterConstants.PRICING):
+          FilterActions.resetPricing();
+          break;
         case (FilterConstants.OVERALL):
           FilterActions.resetOverall();
           break;

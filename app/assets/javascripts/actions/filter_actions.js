@@ -17,16 +17,25 @@ var FilterActions = {
       actionType: FilterConstants.RESET_HOURS,
     });
   },
+  
   resetPower: function () {
     AppDispatcher.dispatch({
       actionType: FilterConstants.RESET_POWER,
     });
   },
+  
+  resetPricing: function () {
+    AppDispatcher.dispatch({
+      actionType: FilterConstants.RESET_PRICING,
+    });
+  },
+  
   resetSeating: function () {
     AppDispatcher.dispatch({
       actionType: FilterConstants.RESET_SEATING,
     });
   },
+  
   resetOverall: function () {
     AppDispatcher.dispatch({
       actionType: FilterConstants.RESET_OVERALL,

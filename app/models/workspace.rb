@@ -26,16 +26,18 @@ class Workspace < ActiveRecord::Base
         return true
       end
     else
-      if current_time.hour == self.weekend_opening.hour
-        if current_time.min < self.weekend_opening.min
-          return false
+      if current_time.hour >= self.weekend_opening.hour && current_time.hour <= self.weekend_closing.hour
+        if current_time.hour == self.weekend_opening.hour
+          if current_time.min < self.weekend_opening.min
+            return false
+          end
+        elsif current_time.hour == self.weekend_closing.hour
+          if current_time.min > self.weekend_closing.min
+            return false
+          end
         end
-      elsif current_time.hour == self.weekend_closing.hour
-        if current_time.min > self.weekend_closing.min
-          return false
-        end
+        return true
       end
-      return true
     end
 
     return false
@@ -96,8 +98,29 @@ class Workspace < ActiveRecord::Base
                                 .where("lng > ?", lower_lng)
                                 .where("lng < ?", upper_lng)
                                 .where("name LIKE ?", "%" + workspace + "%")
+
      if filters[:openNow] == 'true'
        all_workspaces = all_workspaces.select{|workspace| workspace.open_now?}
+     end
+
+     if filters[:overall] == 'true'
+       all_workspaces = all_workspaces.order(overall: :desc)
+     end
+
+     if filters[:wifi] == 'true'
+       all_workspaces = all_workspaces.order(wifi: :desc)
+     end
+
+     if filters[:power] == 'true'
+       all_workspaces = all_workspaces.order(power: :desc)
+     end
+
+     if filters[:seating] == 'true'
+       all_workspaces = all_workspaces.order(seating: :desc)
+     end
+
+     if filters[:pricing] == 'true'
+       all_workspaces = all_workspaces.order(pricing: :asc)
      end
 
      return all_workspaces

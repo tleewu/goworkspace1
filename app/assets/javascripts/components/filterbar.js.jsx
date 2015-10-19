@@ -24,6 +24,10 @@
       this.props.updateFilter(FilterConstants.OVERALL);
     },
 
+    changePricing: function () {
+      this.props.updateFilter(FilterConstants.OVERALL);
+    },
+
     render: function () {
       return (
         <div className="filter-bar">
@@ -32,6 +36,7 @@
           <input type="checkbox" onChange={this.changeOverall}> Overall </input>
           <input type="checkbox" onChange={this.changeSeating}> Seating </input>
           <input type="checkbox" onChange={this.changePower}> Power </input>
+          <input type="checkbox" onChange={this.changePricing}> Pricing </input>
           <input type="checkbox" onChange={this.changeHours}> Open now </input>
         </div>
       );
