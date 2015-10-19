@@ -1,6 +1,7 @@
 TODO:
 
 - Sort workspace listing out in chunks of 10 with 'next' option
+- After search, when I go back, for some reason, the site breaks...why? componentWillUnmount issue??
 - On the first search, it fetches all the workspaces...why?
 - Style up workspace show page
 - Restaurant distances

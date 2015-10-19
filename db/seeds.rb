@@ -18,3 +18,40 @@ Workspace.create!({name: 'Starbucks', lat: 39.276736, lng: -76.830851, overall: 
 Workspace.create!({name: 'Starbucks', lat: 34.062478, lng: -118.447450, overall: 1,
                    wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
                   "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})
+
+Workspace.create!({name: 'In N Out', lat: 34.063100, lng: -118.448062, overall: 4,
+                   wifi: 4, power: 4, seating: 3, weekday_opening: "08:00:00", weekday_closing:
+                  "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
+Workspace.create!({name: 'Iso Fusion Cafe', lat: 34.059885, lng: -118.446156, overall: 1,
+                   wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
+                  "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})
+Workspace.create!({name: 'Chick Fil A', lat: 34.063494, lng: -118.445011, overall: 4,
+                   wifi: 4, power: 4, seating: 3, weekday_opening: "08:00:00", weekday_closing:
+                  "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
+Workspace.create!({name: 'Cocos', lat: 34.063505, lng: -118.445741, overall: 1,
+                   wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
+                  "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})
+Workspace.create!({name: 'Powell Library', lat: 34.072949, lng: -118.443176, overall: 4,
+                   wifi: 4, power: 4, seating: 3, weekday_opening: "08:00:00", weekday_closing:
+                  "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
+Workspace.create!({name: 'Biomed', lat: 34.065837, lng: -118.443646, overall: 1,
+                   wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
+                  "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})
+Workspace.create!({name: 'Midvale Apt 324', lat: 34.067373, lng: -118.452739, overall: 4,
+                   wifi: 4, power: 4, seating: 3, weekday_opening: "08:00:00", weekday_closing:
+                  "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
+Workspace.create!({name: 'Coffee Bean', lat: 34.061611, lng: -118.448082, overall: 1,
+                   wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
+                  "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})
+Workspace.create!({name: 'Coffee Bean', lat: 34.062492, lng: -118.447672, overall: 4,
+                   wifi: 4, power: 4, seating: 3, weekday_opening: "08:00:00", weekday_closing:
+                  "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
+Workspace.create!({name: 'Coffee Bean', lat: 34.062810, lng: -118.444946, overall: 1,
+                   wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
+                  "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})
+Workspace.create!({name: 'Charles E. Young Library', lat: 34.074971, lng: -118.441438, overall: 4,
+                   wifi: 4, power: 4, seating: 3, weekday_opening: "08:00:00", weekday_closing:
+                  "22:00:00", weekend_opening: "08:00:00", weekend_closing: "22:00:00"})
+Workspace.create!({name: 'Chipotle', lat: 34.061021, lng: -118.446273, overall: 1,
+                   wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
+                  "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})

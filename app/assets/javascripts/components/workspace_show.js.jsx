@@ -27,7 +27,7 @@
     },
 
     _createReview: function (reviewDetails) {
-      reviewDetails.workspace_id = this.state.workspace.id
+      reviewDetails.workspace_id = this.state.workspace.id;
       ApiUtil.createReview(reviewDetails);
     },
 
