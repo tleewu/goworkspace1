@@ -15,6 +15,10 @@
       ReviewStore.addChangeListener(this._updateAllReviews);
     },
 
+    componentWillUnmount: function () {
+      ReviewStore.removeChangeListener(this._updateAllReviews);
+    },
+
     render: function () {
       return (
         <div>

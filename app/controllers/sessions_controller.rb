@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout(current_user)
+    render json: {}
   end
 
   private

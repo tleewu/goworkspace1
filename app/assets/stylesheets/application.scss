@@ -76,10 +76,14 @@ nav {
 #user-info {
   padding-top: 12px;
   padding-bottom: 13px;
-  &:hover {
-    background-color: wheat;
-    color: black;
-  }
+}
+
+#dropdownMenu1 {
+  border: 0px;
+}
+
+.btn-default:hover {
+  background-color: #f8f8f8;
 }
 
 #profile-image {

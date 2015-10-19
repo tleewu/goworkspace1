@@ -45,5 +45,15 @@ var ApiUtil = {
         ApiActions.receiveCurrentUser(user);
       }
     });
+  },
+
+  logoutUser: function () {
+    $.ajax({
+      url: "session/",
+      method: "delete",
+      success: function () {
+        window.location = "/session/new";
+      }
+    });
   }
 };
