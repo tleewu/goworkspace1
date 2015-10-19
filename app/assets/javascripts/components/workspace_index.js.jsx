@@ -17,7 +17,11 @@
 
     _updateWorkspaces: function () {
       var workspaces = WorkspaceStore.all();
-      this.setState({workspaces: workspaces, maxSet: workspaces[0].maxSet});
+      if (workspaces.length > 0){
+        this.setState({workspaces: workspaces, maxSet: workspaces[0].maxSet});
+      } else {
+        this.setState({workspaces: workspaces});
+      }
     },
 
     handleNextClick: function () {
