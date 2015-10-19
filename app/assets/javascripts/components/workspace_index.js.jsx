@@ -4,7 +4,7 @@
 
   var WorkspaceIndex = root.WorkspaceIndex = React.createClass({
     getInitialState: function () {
-      return ({workspaces: WorkspaceStore.all(), currentSet: 1, maxSet: 1});
+      return ({workspaces: WorkspaceStore.all(), currentSet: 0, maxSet: 0});
     },
 
     componentDidMount: function () {
@@ -16,23 +16,18 @@
     },
 
     _updateWorkspaces: function () {
-      var max = Math.ceil(WorkspaceStore.all().length / 10);
-      var workspaces = WorkspaceStore.all().slice(0, 9);
-      this.setState({workspaces: workspaces, maxSet: max});
+      var workspaces = WorkspaceStore.all();
+      this.setState({workspaces: workspaces, maxSet: workspaces[0].maxSet});
     },
 
-    handleNextClick: function (e) {
-      e.preventDefault();
-      var updateStartIdx = this.state.currentSet * 10;
-      var workspaces = WorkspaceStore.all().slice(updateStartIdx, updateStartIdx + 9);
-      this.setState({workspaces: workspaces, currentSet: this.state.currentSet + 1});
+    handleNextClick: function () {
+      FilterActions.incrementCurrentSet();
+      this.setState({currentSet: this.state.currentSet + 1});
     },
 
-    handleBackClick: function (e) {
-      e.preventDefault();
-      var updateStartIdx = (this.state.currentSet-2) * 10;
-      var workspaces = WorkspaceStore.all().slice(updateStartIdx, updateStartIdx + 9);
-      this.setState({workspaces: workspaces, currentSet: this.state.currentSet - 1});
+    handleBackClick: function () {
+      FilterActions.decrementCurrentSet();
+      this.setState({currentSet: this.state.currentSet - 1});
     },
 
     render: function () {
@@ -41,7 +36,7 @@
         next = <div onClick={this.handleNextClick}> Next </div>;
       }
 
-      if (this.state.currentSet !== 1) {
+      if (this.state.currentSet !== 0) {
         back = <div onClick={this.handleBackClick}> Back </div>;
       }
 

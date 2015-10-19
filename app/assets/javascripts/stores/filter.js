@@ -10,7 +10,8 @@
                   seating: false,
                   overall: false,
                   power: false,
-                  pricing: false
+                  pricing: false,
+                  currentSet: 0
                 },
       CHANGE = "CHANGE";
 
@@ -73,6 +74,14 @@
           break;
         case FilterConstants.RESET_PRICING:
           _filters.pricing = !(_filters.pricing);
+          FilterStore.changed();
+          break;
+        case FilterConstants.INCREMENT_CURRENT_SET:
+          _filters.currentSet += 1;
+          FilterStore.changed();
+          break;
+        case FilterConstants.DECREMENT_CURRENT_SET:
+          _filters.currentSet -= 1;
           FilterStore.changed();
           break;
       }
