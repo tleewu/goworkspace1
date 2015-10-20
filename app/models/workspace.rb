@@ -60,8 +60,7 @@ class Workspace < ActiveRecord::Base
 
     #TODO: how to parse json string "true" to ruby true, check out line 60
 
-    workspace = filters[:workspaceName] || ''
-
+    workspace = filters[:workspaceName].downcase || ''
     if (filters[:bounds])
 
       bounds = filters[:bounds]
@@ -76,7 +75,7 @@ class Workspace < ActiveRecord::Base
                                 .where("lat < ?", upper_lat)
                                 .where("lng > ?", lower_lng)
                                 .where("lng < ?", upper_lng)
-                                .where("name LIKE ?", "%" + workspace + "%")
+                                .where("lower(name) LIKE ?", "%" + workspace + "%")
 
 
      if filters[:openNow] == 'true'

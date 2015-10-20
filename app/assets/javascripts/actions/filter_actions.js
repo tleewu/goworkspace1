@@ -1,4 +1,11 @@
 var FilterActions = {
+  updateSearchQuery: function (name) {
+    AppDispatcher.dispatch({
+      actionType: FilterConstants.UPDATE_QUERY,
+      name: name
+    });
+  },
+
   resetBounds: function (bounds) {
     AppDispatcher.dispatch({
       actionType: FilterConstants.RESET_BOUNDS,

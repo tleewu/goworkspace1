@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def login(user)
-    session[:session_token]  = user.reset_session_token!
+    session[:session_token] = user.reset_session_token!
     redirect_to root_path
   end
 
   def logout(user)
     user.reset_session_token!
-    session[:session_token] = nil    
+    session[:session_token] = nil
   end
 
   def current_user

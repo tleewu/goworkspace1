@@ -84,6 +84,10 @@
           _filters.currentSet -= 1;
           FilterStore.changed();
           break;
+        case FilterConstants.UPDATE_QUERY:
+          _filters.workspaceName = action.name;
+          FilterStore.changed();
+          break;
       }
     })
   });
