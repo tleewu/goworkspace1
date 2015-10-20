@@ -6,7 +6,7 @@
     mixins: [ReactRouter.History],
 
     getInitialState: function () {
-      return ({workspace: '', location: ''})
+      return ({workspace: '', location: ''});
     },
 
     updateLocation: function (e) {

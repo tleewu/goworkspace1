@@ -54,8 +54,6 @@ class Workspace < ActiveRecord::Base
     workspace.save!
   end
 
-
-
   def self.find_all(filters)
 
     #TODO: how to parse json string "true" to ruby true, check out line 60
