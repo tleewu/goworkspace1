@@ -1,6 +1,5 @@
 class Image < ActiveRecord::Base
-  validates :url, presence: true
+  validates :url, :imageable_id, :imageable_type, presence: true
 
-  has_many :users
-  has_many :workspaces
+  belongs_to :imageable, polymorphic: true 
 end

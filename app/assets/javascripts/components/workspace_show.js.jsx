@@ -36,9 +36,7 @@
     },
 
     componentDidMount: function () {
-      if (!this.state.workspace.id) {
-        WorkspaceItemStore.addChangeListener(this._updateWorkspaceIfNotInStore);
-      }
+      WorkspaceItemStore.addChangeListener(this._updateWorkspaceIfNotInStore);
       ApiActions.listOutAllReviews(this.state.workspace.reviews);
     },
 

@@ -86,6 +86,10 @@ nav {
   background-color: #f8f8f8;
 }
 
+.open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
+  background-color: #f8f8f8;
+}
+
 #profile-image {
   margin-left: 10px;
 }

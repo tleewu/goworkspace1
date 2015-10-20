@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many :workspace_images
-  has_one :image
+  has_many :images, as: :imageable
   has_many :reviews
 
   attr_reader :password

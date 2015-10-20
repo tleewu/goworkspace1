@@ -2,16 +2,16 @@ json.extract! workspace, :id, :name, :lat, :lng, :overall, :wifi, :power, :weekd
                          :weekday_closing, :weekend_opening, :weekend_closing,
                          :seating, :pricing
 
-json.image_url do
-  if workspace.image
-    workspace.image.url
-  else
-    ""
-  end
-end
+# json.image_url do
+#   if workspace.image
+#     workspace.image.url
+#   else
+#     ""
+#   end
+# end
 
 json.images do
-  json.array!(workspace.workspace_images) do |json, image|
+  json.array!(workspace.images) do |image|
     json.url image.url
   end
 end

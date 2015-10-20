@@ -4,8 +4,7 @@ class Workspace < ActiveRecord::Base
   validates :overall, :wifi, :power, :seating, numericality: {greater_than_or_equal_to: 0,
     less_than_or_equal_to: 5}
 
-  has_many :workspace_images
-  belongs_to :image
+  has_many :images, as: :imageable
   has_many :reviews
 
   def self.select_open_spots
@@ -72,7 +71,7 @@ class Workspace < ActiveRecord::Base
       upper_lng = bounds[:northEast][:lng]
 
 
-      all_workspaces = Workspace.includes(:workspace_images)
+      all_workspaces = Workspace.includes(:images)
                                 .where("lat > ?", lower_lat)
                                 .where("lat < ?", upper_lat)
                                 .where("lng > ?", lower_lng)

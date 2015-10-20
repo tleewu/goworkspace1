@@ -55,3 +55,8 @@ Workspace.create!({name: 'Charles E. Young Library', lat: 34.074971, lng: -118.4
 Workspace.create!({name: 'Chipotle', lat: 34.061021, lng: -118.446273, overall: 1,
                    wifi: 1, power: 1, seating: 1, weekday_opening: "1:00:00", weekday_closing:
                   "1:00:01", weekend_opening: "1:00:00", weekend_closing: "1:00:01"})
+
+Image.create!({url: "http://i.imgur.com/ElsMe71.png",
+              imageable_type: "Workspace", imageable_id: 1})
+Image.create!({url: "https://fooddouche.files.wordpress.com/2015/04/img_2219.jpg?w=490",
+              imageable_type: "Workspace", imageable_id: 1})
