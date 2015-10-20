@@ -14,7 +14,9 @@
 
     updateOverall: function (e) {
       e.preventDefault();
-      this.setState({overall: e.currentTarget.value});
+
+      var numStars = parseInt(e.currentTarget.id[5]);
+      this.setState({overall: numStars});
     },
 
     updateWifi: function (e) {
@@ -45,12 +47,75 @@
       this.setState({body: '', overall: null, wifi: null, power: null, pricing: null, seating: null });
     },
 
+    starHovered: function (e) {
+      e.preventDefault();
+      var id = parseInt(e.currentTarget.id[5]);
+      while (id !== 0) {
+        var starId = "star-" + id;
+        document.getElementById(starId).className = "glyphicon glyphicon-star";
+        id -= 1;
+      }
+    },
+
+    clearAllStars: function (e) {
+      e.preventDefault();
+      var id = 1;
+      if (this.state.overall) {
+        id = this.state.overall+1;
+      }
+      while (id <= 5) {
+        var starId = "star-" + id;
+        document.getElementById(starId).className = "glyphicon glyphicon-star-empty";
+        id += 1;
+      }
+    },
+
     render: function () {
+
+      var that = this;
+      var emptyStars, filledStars;
+      if (this.state.overall) {
+        emptyStars = [];
+        filledStars = [];
+        var id = 1;
+
+        while (id <= this.state.overall) {
+          filledStars.push(id);
+          id+=1;
+        }
+
+        while (id <= 5) {
+          emptyStars.push(id);
+          id+=1;
+        }
+
+      } else {
+        filledStars = [];
+        emptyStars = [1,2,3,4,5];
+      }
+
       return (
         <form onSubmit={this.handleSubmit}>
-          <div className="form-group" >
-            <input type="number" placeholder = "Number of stars"
-              value={this.state.overall} onChange = {this.updateOverall}/>
+          <div className="form-group">
+            <span>
+              {
+                filledStars.map(function(id) {
+                  var starId = "star-" + id;
+                  return (<span className="glyphicon glyphicon-star" id={starId}
+                           onClick={that.updateOverall}></span>);
+                })
+              }
+            </span>
+            <span>
+              {
+                emptyStars.map(function(id) {
+                  var starId = "star-" + id;
+                  return (<span className="glyphicon glyphicon-star-empty" id={starId}
+                    onMouseOver={that.starHovered} onMouseOut={that.clearAllStars}
+                    onClick={that.updateOverall}></span>);
+                })
+              }
+            </span>
           </div>
           <div className="form-group">
             <input type="textarea" placeholder = "What did you think?" value = {this.state.body}
