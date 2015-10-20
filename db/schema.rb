@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151019233443) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "images", force: :cascade do |t|
     t.string   "url",            null: false
     t.integer  "imageable_id",   null: false
@@ -24,7 +21,7 @@ ActiveRecord::Schema.define(version: 20151019233443) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "images", ["imageable_id"], name: "index_images_on_imageable_id", using: :btree
+  add_index "images", ["imageable_id"], name: "index_images_on_imageable_id"
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id",      null: false
@@ -39,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151019233443) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "reviews", ["user_id", "workspace_id"], name: "index_reviews_on_user_id_and_workspace_id", using: :btree
+  add_index "reviews", ["user_id", "workspace_id"], name: "index_reviews_on_user_id_and_workspace_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                                                                                                   null: false
@@ -61,7 +58,7 @@ ActiveRecord::Schema.define(version: 20151019233443) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "workspace_images", ["user_id", "workspace_id"], name: "index_workspace_images_on_user_id_and_workspace_id", using: :btree
+  add_index "workspace_images", ["user_id", "workspace_id"], name: "index_workspace_images_on_user_id_and_workspace_id"
 
   create_table "workspaces", force: :cascade do |t|
     t.string   "name",                              null: false
@@ -85,6 +82,6 @@ ActiveRecord::Schema.define(version: 20151019233443) do
     t.integer  "num_pricing_ratings", default: 0,   null: false
   end
 
-  add_index "workspaces", ["image_id"], name: "index_workspaces_on_image_id", using: :btree
+  add_index "workspaces", ["image_id"], name: "index_workspaces_on_image_id"
 
 end
