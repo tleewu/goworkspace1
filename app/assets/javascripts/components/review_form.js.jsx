@@ -50,7 +50,7 @@
       this.props.createReview({body: this.state.body, overall: this.state.overall,
                                wifi: this.state.wifi, power: this.state.power,
                                seating: this.state.seating, pricing: this.state.pricing});
-      this.setState({body: '', overall: null, wifi: null, power: null, pricing: null, seating: null });
+      this.setState({body: '', overall: 0, wifi: null, power: null, pricing: null, seating: null, hover:0 });
     },
 
     _updateHover: function (id) {
@@ -63,19 +63,6 @@
 
     _updateUnhover: function () {
       this.setState({hover: this.state.overall});
-    },
-
-    clearAllStars: function (e) {
-      e.preventDefault();
-      var id = 1;
-      if (this.state.overall) {
-        id = this.state.overall+1;
-      }
-      while (id <= 5) {
-        var starId = "star-" + id;
-        document.getElementById(starId).className = "glyphicon glyphicon-star-empty";
-        id += 1;
-      }
     },
 
     render: function () {

@@ -10,7 +10,6 @@ class Workspace < ActiveRecord::Base
   def self.select_open_spots
     current_time = Time.now
     update_time = Time.new(2000, 1, 1, current_time.hour, current_time.min)
-
     if !current_time.saturday? && !current_time.sunday?
       return self.where("weekday_opening <= ?", update_time)
                  .where("weekday_closing >= ?", update_time)
