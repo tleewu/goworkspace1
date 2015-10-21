@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019233443) do
+ActiveRecord::Schema.define(version: 20151020223547) do
 
   create_table "images", force: :cascade do |t|
     t.string   "url",            null: false
@@ -74,14 +74,12 @@ ActiveRecord::Schema.define(version: 20151019233443) do
     t.time     "weekend_closing",                   null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.integer  "image_id"
     t.float    "pricing",             default: 0.0, null: false
     t.integer  "num_wifi_ratings",    default: 0,   null: false
     t.integer  "num_power_ratings",   default: 0,   null: false
     t.integer  "num_seating_ratings", default: 0,   null: false
     t.integer  "num_pricing_ratings", default: 0,   null: false
+    t.string   "profile_image_url"
   end
-
-  add_index "workspaces", ["image_id"], name: "index_workspaces_on_image_id"
 
 end

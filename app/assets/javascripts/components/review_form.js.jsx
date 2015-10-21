@@ -4,7 +4,14 @@
 
   var ReviewForm = root.ReviewForm = React.createClass({
     getInitialState: function () {
-      return ({body: '', overall: null, wifi: null, power: null, seating: null, pricing: null});
+      return ({body: '',
+              overall: 0,
+              wifi: null,
+              power: null,
+              seating: null,
+              pricing: null,
+              hover: 0
+            });
     },
 
     updateBody: function (e) {
@@ -14,7 +21,6 @@
 
     updateOverall: function (e) {
       e.preventDefault();
-
       var numStars = parseInt(e.currentTarget.id[5]);
       this.setState({overall: numStars});
     },
@@ -47,14 +53,16 @@
       this.setState({body: '', overall: null, wifi: null, power: null, pricing: null, seating: null });
     },
 
-    starHovered: function (e) {
-      e.preventDefault();
-      var id = parseInt(e.currentTarget.id[5]);
-      while (id !== 0) {
-        var starId = "star-" + id;
-        document.getElementById(starId).className = "glyphicon glyphicon-star";
-        id -= 1;
-      }
+    _updateHover: function (id) {
+      this.setState({hover: parseInt(id)});
+    },
+
+    _updateClick: function (id) {
+      this.setState({overall: parseInt(id)});
+    },
+
+    _updateUnhover: function () {
+      this.setState({hover: this.state.overall});
     },
 
     clearAllStars: function (e) {
@@ -71,51 +79,24 @@
     },
 
     render: function () {
-
-      var that = this;
-      var emptyStars, filledStars;
-      if (this.state.overall) {
-        emptyStars = [];
-        filledStars = [];
-        var id = 1;
-
-        while (id <= this.state.overall) {
-          filledStars.push(id);
-          id+=1;
-        }
-
-        while (id <= 5) {
-          emptyStars.push(id);
-          id+=1;
-        }
-
-      } else {
-        filledStars = [];
-        emptyStars = [1,2,3,4,5];
-      }
-
       return (
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <span>
-              {
-                filledStars.map(function(id) {
-                  var starId = "star-" + id;
-                  return (<span className="glyphicon glyphicon-star" id={starId}
-                           onClick={that.updateOverall}></span>);
-                })
-              }
-            </span>
-            <span>
-              {
-                emptyStars.map(function(id) {
-                  var starId = "star-" + id;
-                  return (<span className="glyphicon glyphicon-star-empty" id={starId}
-                    onMouseOver={that.starHovered} onMouseOut={that.clearAllStars}
-                    onClick={that.updateOverall}></span>);
-                })
-              }
-            </span>
+            <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
+              overall={this.state.overall} updateClick={this._updateClick}
+              updateUnhover={this._updateUnhover}/>
+            <Star id="2" updateHover={this._updateHover} hoverId={this.state.hover}
+              overall={this.state.overall} updateClick={this._updateClick}
+              updateUnhover={this._updateUnhover}/>
+            <Star id="3" updateHover={this._updateHover} hoverId={this.state.hover}
+              overall={this.state.overall} updateClick={this._updateClick}
+              updateUnhover={this._updateUnhover}/>
+            <Star id="4" updateHover={this._updateHover} hoverId={this.state.hover}
+              overall={this.state.overall} updateClick={this._updateClick}
+              updateUnhover={this._updateUnhover}/>
+            <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
+              overall={this.state.overall} updateClick={this._updateClick}
+              updateUnhover={this._updateUnhover}/>
           </div>
           <div className="form-group">
             <input type="textarea" placeholder = "What did you think?" value = {this.state.body}
