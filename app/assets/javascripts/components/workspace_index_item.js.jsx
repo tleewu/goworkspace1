@@ -23,7 +23,7 @@
               </div>
               <div className="col-md-2">
                 <div> Overall: {workspace.overall} </div>
-                <div> Seating: {workspace.seating} Hours: {workspace.weekday_opening} {workspace.weekday_closing} </div>
+                <div> Seating: {workspace.seating} </div>
               </div>
             </div>
           </div>
