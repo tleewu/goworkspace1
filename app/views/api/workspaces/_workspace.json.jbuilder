@@ -1,8 +1,7 @@
 json.extract! workspace, :id, :name, :lat, :lng, :overall, :wifi, :power, :weekday_opening,
                          :weekday_closing, :weekend_opening, :weekend_closing,
-                         :seating, :pricing
+                         :seating, :pricing, :profile_image_url
 
-# json.profile_image json
 json.images do
   json.array!(workspace.images) do |image|
     json.url image.url

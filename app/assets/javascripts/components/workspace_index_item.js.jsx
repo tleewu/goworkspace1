@@ -12,11 +12,14 @@
         <div className="workspace-item">
           <div className="container">
             <div className="row">
-              <div className="col-md-2" id="workspace-profile-picture">
-                X
+              <div className="col-md-1" id="workspace-profile-picture">
+                <img src = {workspace.profile_image_url} height="90px" width="90px"/>
               </div>
               <div className="col-md-3">
-                <Link to={workspace_url}> {workspace.name} </Link>
+                <br/>
+                <Link to={workspace_url} id="workspace-name"> {workspace.name} </Link>
+                <WorkspaceItemStars workspace={workspace} />
+
               </div>
               <div className="col-md-2">
                 <div> Overall: {workspace.overall} </div>

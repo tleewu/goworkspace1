@@ -7,6 +7,12 @@
       return ({filled: false});
     },
 
+    componentDidMount: function () {
+      if (this.props.filled) {
+        this.setState({filled: true});
+      }
+    },
+
     componentWillReceiveProps: function (newProps) {
       if (newProps.overall >= this.props.id) {
         this.setState({filled: true});
@@ -20,15 +26,21 @@
     },
 
     updateHover: function () {
-      this.props.updateHover(this.props.id);
+      if (this.props.updateHover) {
+        this.props.updateHover(this.props.id);
+      }
     },
 
     updateClick: function () {
-      this.props.updateClick(this.props.id);
+      if (this.props.updateClick) {
+        this.props.updateClick(this.props.id);
+      }
     },
 
     updateUnhover: function () {
-      this.props.updateUnhover();
+      if (this.props.updateUnhover) {
+        this.props.updateUnhover();
+      }
     },
 
     render: function () {

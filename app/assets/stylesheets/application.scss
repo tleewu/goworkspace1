@@ -94,6 +94,11 @@ nav {
   margin-left: 10px;
 }
 
+#workspace-name {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
 #workspace-info-name {
   font-size: 30px;
   letter-spacing: 2px;
@@ -106,8 +111,7 @@ nav {
   border-top: none;
   padding: 5px 5px;
   #workspace-profile-picture {
-    height: 100%;
-    border: 1px solid black;
+    padding: 0px 0px;
   }
 }
 
