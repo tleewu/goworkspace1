@@ -5,8 +5,30 @@
 
   var WorkspaceIndexItem = root.WorkspaceIndexItem = React.createClass({
 
+    getInitialState: function () {
+      return ({workspace: this.props.workspace});
+    },
+
+    componentWillReceiveProps: function () {
+      this.setState({workspace: this.props.workspace});
+    },
+
     render: function () {
-      var workspace = this.props.workspace;
+      var workspace = this.state.workspace;
+      var idx = 1;
+      var empty = [];
+      var filled = [];
+
+      while (idx <= workspace.overall) {
+        filled.push(<span className="glyphicon glyphicon-star"></span>);
+        idx += 1;
+      }
+
+      while (idx <= 5) {
+        empty.push(<span className="glyphicon glyphicon-star-empty"> </span>)
+        idx += 1;
+      }
+
       var workspace_url = "/workspace/" + workspace.id;
       return (
         <div className="workspace-item">
@@ -18,8 +40,9 @@
               <div className="col-md-3">
                 <br/>
                 <Link to={workspace_url} id="workspace-name"> {workspace.name} </Link>
-                <WorkspaceItemStars workspace={workspace} />
-
+                <br/>
+                {filled}
+                {empty}
               </div>
               <div className="col-md-2">
                 <div> Overall: {workspace.overall} </div>
