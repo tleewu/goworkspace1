@@ -9,6 +9,9 @@
 
     componentWillReceiveProps: function (newProps) {
       this.setState({workspaces: newProps.workspaces});
+      if (newProps.workspaces[0].maxSet) {
+        this.setState({maxSet: newProps.workspaces[0].maxSet});
+      }
     },
 
     handleNextClick: function () {
