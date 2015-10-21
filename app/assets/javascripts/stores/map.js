@@ -19,8 +19,6 @@
     },
 
     changed: function () {
-      console.log("change in map store");
-      console.log(_mapCenter);
       this.emit(CHANGE);
     },
 

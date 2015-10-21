@@ -18,6 +18,10 @@ nav {
   margin-bottom:0px;
 }
 
+.btn-default {
+  background-color: #f8f8f8;
+}
+
 .user-form {
   position: relative;
   top: 200px;
@@ -71,6 +75,10 @@ nav {
     letter-spacing: 2px;
     margin-right: 50px;
   }
+}
+
+.cloudinary-thumbnails {
+  display: none;
 }
 
 #user-info {

@@ -50,6 +50,7 @@
         theme: 'minimal', cropping: 'server', 'folder': 'user_photos' },
       function(error, result) {
           document.getElementById('opener').value = result[0].secure_url;
+          document.getElementsByClassName('cloudinary-button')[0].style.display = "none";
       }
     );
   </script>

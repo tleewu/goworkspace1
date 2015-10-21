@@ -38,7 +38,6 @@
 
     updateMapWhenMoved: function () {
       var coords = this.map.getCenter();
-      // debugger;
       ApiActions.resetMapCenter({lat: coords.lat(), lng: coords.lng()});
       FilterActions.resetBounds(this.map.getBounds());
     },
