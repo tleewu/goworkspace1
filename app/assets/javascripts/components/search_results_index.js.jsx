@@ -10,10 +10,15 @@
 
     componentDidMount: function () {
       FilterStore.addChangeListener(this.queryForWorkspaces);
+      WorkspaceStore.addChangeListener(this.updateWorkspaces);
+
+
+      this.queryForWorkspaces();
     },
 
     componentWillUnmount: function () {
       FilterStore.removeChangeListener(this.queryForWorkspaces);
+      WorkspaceStore.removeChangeListener(this.updateWorkspaces);
     },
 
     updateWorkspaces: function () {
@@ -57,8 +62,7 @@
               <WorkspaceIndex workspaces={this.state.workspaces}/>
             </div>
             <div className="col-md-5">
-              <Map latLngLocation = {this.props.location.query.location}
-               updateBounds = {this.updateBounds}/>
+              <Map />
             </div>
           </div>
 

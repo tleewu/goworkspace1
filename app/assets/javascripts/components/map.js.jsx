@@ -5,8 +5,6 @@
   var Map = root.Map = React.createClass({
 
     _updateMarkers: function () {
-      // TODO: whenever I move the map super fast, sometimes the markers disappear.
-      // My theory is that setState is too slow
 
       var newMarkers = WorkspaceStore.all();
       var currentMarkers = this.state.markers.slice(0);
@@ -40,58 +38,41 @@
 
     updateMapWhenMoved: function () {
       var coords = this.map.getCenter();
+      // debugger;
       ApiActions.resetMapCenter({lat: coords.lat(), lng: coords.lng()});
       FilterActions.resetBounds(this.map.getBounds());
     },
 
     _setMapOnDOM: function () {
-      var filters = FilterStore.all();
-      var centerOfMap = filters.mapCenter;
+      var centerOfMap = MapStore.get();
 
       if (this.map) {
         this.map.setCenter({lat: centerOfMap.lat, lng: centerOfMap.lng});
       } else {
-        var map = React.findDOMNode(this.refs.map);
-        var mapOptions = {
-          center: centerOfMap,
-          zoom: 13
-        };
-        this.map = new google.maps.Map(map, mapOptions);
-        this.map.addListener('idle', this.updateMapWhenMoved);
-      }
-    },
-
-    setDefaultLocation: function (position) {
-      var lat = position.coords.latitude,
-          lng = position.coords.longitude;
-      var location = {lat: lat, lng: lng};
-      ApiActions.resetMapCenter(location);
-    },
-
-    updateMap: function (location) {
-      if (location.length === 0){
-        navigator.geolocation.getCurrentPosition(this.setDefaultLocation);
-      } else {
-        var geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
-                          location + "&key=AIzaSyCgpLQ3tKe3gpdI5oraHqYI6Wu0I4oLf-0";
-        ApiUtil.findGeocodeOfAddress(geocodeUrl);
+        if (centerOfMap.lat && centerOfMap.lng) {
+          var map = React.findDOMNode(this.refs.map);
+          var mapOptions = {
+            center: centerOfMap,
+            zoom: 13
+          };
+          this.map = new google.maps.Map(map, mapOptions);
+          this.map.addListener('idle', this.updateMapWhenMoved);
+        }
       }
     },
 
     componentDidMount: function () {
-      FilterStore.addChangeListener(this._setMapOnDOM);
+      MapStore.addChangeListener(this._setMapOnDOM);
       WorkspaceStore.addChangeListener(this._updateMarkers);
 
-      this.updateMap(this.props.latLngLocation);
+      if (!this.map) {
+        this._setMapOnDOM();
+      }
     },
 
     componentWillUnmount: function () {
-      FilterStore.removeChangeListener(this._setMapOnDOM);
+      MapStore.removeChangeListener(this._setMapOnDOM);
       WorkspaceStore.removeChangeListener(this._updateMarkers);
-    },
-
-    componentWillReceiveProps: function (newProps) {
-      this.updateMap(newProps.latLngLocation);
     },
 
     render: function () {

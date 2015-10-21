@@ -19,11 +19,31 @@
       this.setState({workspace: e.currentTarget.value});
     },
 
+    setDefaultLocation: function (position) {
+      var lat = position.coords.latitude,
+          lng = position.coords.longitude;
+      var location = {lat: lat, lng: lng};
+      ApiActions.resetMapCenter(location);
+    },
+
     handleSubmit: function (e) {
       e.preventDefault();
       FilterActions.updateSearchQuery(this.state.workspace);
-      this.history.pushState(null, "search/", {workspace: this.state.workspace,
-                                               location: this.state.location});
+
+      var location = this.state.location;
+
+      if (location.length === 0){
+        navigator.geolocation.getCurrentPosition(this.setDefaultLocation);
+      } else {
+        var geocodeUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
+                          location + "&key=AIzaSyCgpLQ3tKe3gpdI5oraHqYI6Wu0I4oLf-0";
+        ApiUtil.findGeocodeOfAddress(geocodeUrl);
+      }
+      this.history.pushState(null, "search/");
+    },
+
+    componentWillUnmount: function () {
+      this.setState({workspace: '', location: ''});
     },
 
     render: function () {

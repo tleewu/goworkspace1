@@ -4,24 +4,11 @@
 
   var WorkspaceIndex = root.WorkspaceIndex = React.createClass({
     getInitialState: function () {
-      return ({workspaces: WorkspaceStore.all(), currentSet: 0, maxSet: 0});
+      return ({workspaces: [], currentSet: 0, maxSet: 0});
     },
 
-    componentDidMount: function () {
-      WorkspaceStore.addChangeListener(this._updateWorkspaces);
-    },
-
-    componentWillUnmount: function () {
-      WorkspaceStore.removeChangeListener(this._updateWorkspaces);
-    },
-
-    _updateWorkspaces: function () {
-      var workspaces = WorkspaceStore.all();
-      if (workspaces.length > 0){
-        this.setState({workspaces: workspaces, maxSet: workspaces[0].maxSet});
-      } else {
-        this.setState({workspaces: workspaces});
-      }
+    componentWillReceiveProps: function (newProps) {
+      this.setState({workspaces: newProps.workspaces});
     },
 
     handleNextClick: function () {

@@ -5,16 +5,8 @@
 
   var WorkspaceIndexItem = root.WorkspaceIndexItem = React.createClass({
 
-    getInitialState: function () {
-      return ({workspace: this.props.workspace});
-    },
-
-    componentWillReceiveProps: function () {
-      this.setState({workspace: this.props.workspace});
-    },
-
     render: function () {
-      var workspace = this.state.workspace;
+      var workspace = this.props.workspace;
       var idx = 1;
       var empty = [];
       var filled = [];

@@ -59,6 +59,7 @@ class Workspace < ActiveRecord::Base
     #TODO: how to parse json string "true" to ruby true, check out line 60
 
     workspace = filters[:workspaceName].downcase || ''
+
     if (filters[:bounds])
 
       bounds = filters[:bounds]
@@ -69,6 +70,7 @@ class Workspace < ActiveRecord::Base
 
 
       all_workspaces = Workspace.includes(:images)
+                                .includes(:reviews)
                                 .where("lat > ?", lower_lat)
                                 .where("lat < ?", upper_lat)
                                 .where("lng > ?", lower_lng)
@@ -102,7 +104,7 @@ class Workspace < ActiveRecord::Base
 
      return all_workspaces
     else
-      return Workspace.all
+      return []
     end
   end
 end

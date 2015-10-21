@@ -2,9 +2,7 @@
   'use strict';
 
   var _filters = { workspaceName: null,
-                  mapCenter: {lat: null, lng: null},
                   bounds: {},
-                  price: 0,
                   wifi: false,
                   openNow: false,
                   seating: false,
@@ -44,10 +42,6 @@
 
     dispatcherID: AppDispatcher.register(function (action) {
       switch (action.actionType){
-        case FilterConstants.UPDATE_MAP_CENTER:
-          _filters.mapCenter = action.center;
-          FilterStore.changed();
-          break;
         case FilterConstants.RESET_BOUNDS:
           FilterStore.changeBounds(action.bounds);
           FilterStore.changed();
