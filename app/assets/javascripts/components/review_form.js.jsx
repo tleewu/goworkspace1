@@ -6,10 +6,10 @@
     getInitialState: function () {
       return ({body: '',
               overall: 0,
-              wifi: '1',
-              power: '1',
-              seating: '1',
-              pricing: '1',
+              wifi: 1,
+              power: 1,
+              seating: 1,
+              pricing: 1,
               hover: 0,
               currentUser: {}
             });
@@ -64,7 +64,7 @@
       this.props.createReview({body: this.state.body, overall: this.state.overall,
                                wifi: this.state.wifi, power: this.state.power,
                                seating: this.state.seating, pricing: this.state.pricing});
-      this.setState({body: '', overall: 0, wifi: null, power: null, pricing: null, seating: null, hover:0 });
+      this.setState({body: '', overall: 0, wifi: 1, power: 1, pricing: 1, seating: 1, hover:0 });
     },
 
     _updateHover: function (id) {
@@ -101,15 +101,21 @@
                   <input id="review-form-input" type="textarea" placeholder = "What did you think?" value = {this.state.body}
                     onChange={this.updateBody}/>
                 </div>
-                <div className="form-group">
+                <div className="row" id="ratings">
+                  <div className="col-md-4">
+                    <Wifi rating={this.state.wifi} />
+                  </div>
+                  <div className="col-md-4">
+                    <Power rating={this.state.power} />
+                  </div>
+                </div>
+                <div className="form-group" >
                   <input type="range" id="input-slider-bar" value = {this.state.wifi} min="1" max="5" step="1"
                     onChange={this.updateWifi}/>
                   <input type="range" id="input-slider-bar" value = {this.state.power} min="1" max="5" step="1"
                      onChange={this.updatePower}/>
                   <input type="range" id="input-slider-bar" value = {this.state.seating} min="1" max="5" step="1"
                      onChange={this.updateSeating}/>
-                  <input type="range" value = {this.state.pricing} min="1" max="5" step="1"
-                     onChange={this.updatePricing}/>
                 </div>
                 <div className="form-group">
                   <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
