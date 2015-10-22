@@ -10,7 +10,7 @@
             <div className="row">
               <div className="col-md-1" id="logo-bar-properties">
                 <a className="navbar-brand" href="/">
-                  w
+                  <img src="http://res.cloudinary.com/goworkspace/image/upload/v1445475396/w-logo_heetrm.png" height="40px" width="40px"/>
                 </a>
               </div>
               <div className="col-md-8" id="search-bar-properties">
