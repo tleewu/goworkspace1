@@ -6,12 +6,26 @@
     getInitialState: function () {
       return ({body: '',
               overall: 0,
-              wifi: null,
-              power: null,
-              seating: null,
-              pricing: null,
-              hover: 0
+              wifi: '1',
+              power: '1',
+              seating: '1',
+              pricing: '1',
+              hover: 0,
+              currentUser: {}
             });
+    },
+
+    componentDidMount: function () {
+      UserStore.addChangeListener(this._getCurrentUser);
+      ApiUtil.fetchCurrentUser();
+    },
+
+    _getCurrentUser: function () {
+      this.setState({currentUser: UserStore.get()});
+    },
+
+    componentWillUnmount: function () {
+      this.setState({currentUser: UserStore.get()});
     },
 
     updateBody: function (e) {
@@ -27,22 +41,22 @@
 
     updateWifi: function (e) {
       e.preventDefault();
-      this.setState({wifi: e.currentTarget.value});
+      this.setState({wifi: parseInt(e.currentTarget.value)});
     },
 
     updatePower: function (e) {
       e.preventDefault();
-      this.setState({power: e.currentTarget.value});
+      this.setState({power: parseInt(e.currentTarget.value)});
     },
 
     updateSeating: function (e) {
       e.preventDefault();
-      this.setState({seating: e.currentTarget.value});
+      this.setState({seating: parseInt(e.currentTarget.value)});
     },
 
     updatePricing: function (e) {
       e.preventDefault();
-      this.setState({pricing: e.currentTarget.value});
+      this.setState({pricing: parseInt(e.currentTarget.value)});
     },
 
     handleSubmit: function (e) {
@@ -66,41 +80,59 @@
     },
 
     render: function () {
+      var firstLetterLastName = '';
+      if (this.state.currentUser.last_name) {
+        firstLetterLastName = this.state.currentUser.last_name[0];
+      }
       return (
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
-              overall={this.state.overall} updateClick={this._updateClick}
-              updateUnhover={this._updateUnhover}/>
-            <Star id="2" updateHover={this._updateHover} hoverId={this.state.hover}
-              overall={this.state.overall} updateClick={this._updateClick}
-              updateUnhover={this._updateUnhover}/>
-            <Star id="3" updateHover={this._updateHover} hoverId={this.state.hover}
-              overall={this.state.overall} updateClick={this._updateClick}
-              updateUnhover={this._updateUnhover}/>
-            <Star id="4" updateHover={this._updateHover} hoverId={this.state.hover}
-              overall={this.state.overall} updateClick={this._updateClick}
-              updateUnhover={this._updateUnhover}/>
-            <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
-              overall={this.state.overall} updateClick={this._updateClick}
-              updateUnhover={this._updateUnhover}/>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-1" id="user-profile-pic-review" >
+              <img src={this.state.currentUser.profile_image_url} className='img-circle' height="30px" width="30px"/>
+            </div>
+            <div className="col-md-1" id="user-info-review">
+              {this.state.currentUser.first_name} {firstLetterLastName}.
+              <br/>
+              {this.state.currentUser.location}
+            </div>
+            <div className="col-md-6">
+              <form onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                  <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                  <Star id="2" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                  <Star id="3" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                  <Star id="4" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                  <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                </div>
+                <div className="form-group">
+                  <input type="textarea" placeholder = "What did you think?" value = {this.state.body}
+                    onChange={this.updateBody}/>
+                </div>
+                <div className="form-group">
+                  <input type="range" value = {this.state.wifi} min="1" max="5" step="1"
+                    onChange={this.updateWifi}/>
+                  <input type="range" value = {this.state.power} min="1" max="5" step="1"
+                     onChange={this.updatePower}/>
+                  <input type="range" value = {this.state.seating} min="1" max="5" step="1"
+                     onChange={this.updateSeating}/>
+                  <input type="range" value = {this.state.pricing} min="1" max="5" step="1"
+                     onChange={this.updatePricing}/>
+                </div>
+                <input type="submit" value = "Create review" />
+              </form>
+            </div>
           </div>
-          <div className="form-group">
-            <input type="textarea" placeholder = "What did you think?" value = {this.state.body}
-              onChange={this.updateBody}/>
-          </div>
-          <div className="form-group">
-            <input type="number" placeholder = "wifi" value = {this.state.wifi}
-              onChange={this.updateWifi}/>
-            <input type="number" placeholder = "power" value = {this.state.power}
-              onChange={this.updatePower}/>
-            <input type="number" placeholder = "seating" value = {this.state.seating}
-              onChange={this.updateSeating}/>
-            <input type="number" placeholder = "pricing" value = {this.state.pricing}
-              onChange={this.updatePricing}/>
-          </div>
-          <input type="submit" value = "Create review" />
-        </form>
+        </div>
       )
     }
   });

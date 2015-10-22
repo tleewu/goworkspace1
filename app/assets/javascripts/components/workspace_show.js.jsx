@@ -46,7 +46,7 @@
 
     render: function () {
       return (
-        <div className="workspace-show">
+        <div>
           <WorkspaceShowCarousel images={this.state.workspace.images} />
           <div className="container">
             <div className="row">
@@ -70,10 +70,16 @@
                   <div> Pricing: {this.state.workspace.seating} </div>
                 </div>
               </div>
-            </div>
-            <br/><br/>
-            <ReviewForm createReview={this._createReview} />
-            <ReviewIndex />
+              <br/><br/>
+              <div className="row">
+                <div className="col-md-8 col-md-offset-2" id="workspace-reviews">
+                  <div id="all-reviews"> ALL REVIEWS: </div>
+                  <br/>
+                  <ReviewForm createReview={this._createReview} />
+                  <ReviewIndex />
+                </div>
+              </div>
+           </div>
           </div>
         </div>
       )
