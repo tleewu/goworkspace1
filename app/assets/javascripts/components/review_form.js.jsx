@@ -98,6 +98,20 @@
             <div className="col-md-6">
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
+                  <input id="review-form-input" type="textarea" placeholder = "What did you think?" value = {this.state.body}
+                    onChange={this.updateBody}/>
+                </div>
+                <div className="form-group">
+                  <input type="range" id="input-slider-bar" value = {this.state.wifi} min="1" max="5" step="1"
+                    onChange={this.updateWifi}/>
+                  <input type="range" id="input-slider-bar" value = {this.state.power} min="1" max="5" step="1"
+                     onChange={this.updatePower}/>
+                  <input type="range" id="input-slider-bar" value = {this.state.seating} min="1" max="5" step="1"
+                     onChange={this.updateSeating}/>
+                  <input type="range" value = {this.state.pricing} min="1" max="5" step="1"
+                     onChange={this.updatePricing}/>
+                </div>
+                <div className="form-group">
                   <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
                     overall={this.state.overall} updateClick={this._updateClick}
                     updateUnhover={this._updateUnhover}/>
@@ -113,20 +127,6 @@
                   <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
                     overall={this.state.overall} updateClick={this._updateClick}
                     updateUnhover={this._updateUnhover}/>
-                </div>
-                <div className="form-group">
-                  <input type="textarea" placeholder = "What did you think?" value = {this.state.body}
-                    onChange={this.updateBody}/>
-                </div>
-                <div className="form-group">
-                  <input type="range" value = {this.state.wifi} min="1" max="5" step="1"
-                    onChange={this.updateWifi}/>
-                  <input type="range" value = {this.state.power} min="1" max="5" step="1"
-                     onChange={this.updatePower}/>
-                  <input type="range" value = {this.state.seating} min="1" max="5" step="1"
-                     onChange={this.updateSeating}/>
-                  <input type="range" value = {this.state.pricing} min="1" max="5" step="1"
-                     onChange={this.updatePricing}/>
                 </div>
                 <input type="submit" value = "Create review" />
               </form>
