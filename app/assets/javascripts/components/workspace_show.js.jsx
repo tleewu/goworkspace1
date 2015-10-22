@@ -46,24 +46,35 @@
 
     render: function () {
       return (
-        <div>
+        <div className="workspace-show">
           <WorkspaceShowCarousel images={this.state.workspace.images} />
-          <br/><br/>
           <div className="container">
             <div className="row">
-              <div className="col-md-2 col-md-offset-5">
-                <b id="workspace-info-name"> {this.state.workspace.name} </b>
-                <div> Overall: {this.state.workspace.overall} </div>
-                <div> Wifi: {this.state.workspace.wifi} </div>
-                <div> Power: {this.state.workspace.power} </div>
-                <div> Seating: {this.state.workspace.seating} </div>
-                <div> Pricing: {this.state.workspace.seating} </div>
+              <div className="col-md-12">
+                <div className="col-md-2 col-md-offset-5" id="workspace-profile-image">
+                  <img id="profile-workspace" src={this.state.workspace.profile_image_url} height="125px" width="125px"/>
+                </div>
               </div>
             </div>
           </div>
           <br/><br/>
-          <ReviewForm createReview={this._createReview} />
-          <ReviewIndex />
+          <div className="below-carousel">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-2 col-md-offset-5" id="workspace-title">
+                  <div id="workspace-info-name"> {this.state.workspace.name} </div>
+                  <div> Overall: {this.state.workspace.overall} </div>
+                  <div> Wifi: {this.state.workspace.wifi} </div>
+                  <div> Power: {this.state.workspace.power} </div>
+                  <div> Seating: {this.state.workspace.seating} </div>
+                  <div> Pricing: {this.state.workspace.seating} </div>
+                </div>
+              </div>
+            </div>
+            <br/><br/>
+            <ReviewForm createReview={this._createReview} />
+            <ReviewIndex />
+          </div>
         </div>
       )
     }

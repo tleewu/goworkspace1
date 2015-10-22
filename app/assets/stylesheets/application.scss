@@ -28,6 +28,23 @@ nav {
   padding-top: 5px;
 }
 
+.workspace-show {
+  font-family: 'Helvetica Neue';
+}
+
+#workspace-profile-image {
+  padding-left: 32px;
+  padding-right: 32px;
+  position: relative;
+}
+
+#profile-workspace {
+  position:relative;
+  z-index: 1000;
+  top: -62px;
+  border: 1px solid black;
+}
+
 .user-form {
   position: relative;
   top: 200px;
@@ -126,14 +143,24 @@ nav {
   margin-left: 10px;
 }
 
+#workspace-title {
+  text-align: center;
+}
+
 #workspace-name {
   margin-top: 10px;
   font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.below-carousel {
+  position: relative;
+  top: -90px;
 }
 
 #workspace-info-name {
-  font-size: 30px;
-  letter-spacing: 2px;
+  font-size: 20px;
+  text-align: center;
 }
 
 .workspace-item {
