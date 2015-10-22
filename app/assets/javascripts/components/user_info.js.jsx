@@ -27,15 +27,18 @@
     render: function () {
 
       return (
-        <div className="dropdown">
-          <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <div>
+          <div className="col-md-8 welcome-user">
             Welcome, {this.state.currentUser.first_name}!
-            <img src={this.state.currentUser.profile_image_url} className='img-circle' height="25px" width="25px" id='profile-image' />
-            <span className="caret"></span>
-          </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li onClick={this.logout}> Logout </li>
-          </ul>
+          </div>
+          <div className="col-md-4 dropdown">
+            <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <img src={this.state.currentUser.profile_image_url} className='img-circle' height="37px" width="37px" id='profile-image' />
+            </button>
+            <ul className="dropdown-menu col-md-1" aria-labelledby="dropdownMenu1">
+              <li onClick={this.logout}> Logout </li>
+            </ul>
+          </div>
         </div>
       );
     }

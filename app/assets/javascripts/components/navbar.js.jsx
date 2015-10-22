@@ -13,10 +13,10 @@
                   w
                 </a>
               </div>
-              <div className="col-md-9" id="search-bar-properties">
+              <div className="col-md-8" id="search-bar-properties">
                 <SearchBar />
               </div>
-              <div className="col-md-2" id="user-info">
+              <div className="col-md-3" id="user-info">
                 <UserInfo />
               </div>
             </div>

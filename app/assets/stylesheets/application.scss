@@ -62,8 +62,9 @@ nav {
 
 .map {
   margin-top: 20px;
-  height: 500px;
-  width: 500px;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
 }
 
 .filter-bar {
@@ -77,21 +78,38 @@ nav {
   }
 }
 
+.user-info {
+  width: 100%;
+  text-align: center;
+}
+
+.welcome-user {
+  padding-top:13px;
+  padding-bottom: 17px;
+  border-right: 1px solid gray;
+}
+
 .cloudinary-thumbnails {
   display: none;
 }
 
-#user-info {
-  padding-top: 12px;
-  padding-bottom: 13px;
-}
-
 #dropdownMenu1 {
   border: 0px;
+  padding-left: 0px;
 }
 
 .btn-default:hover {
   background-color: #f8f8f8;
+}
+
+.dropdown-menu {
+  min-width: 0px;
+  text-align: center;
+  border: 1px solid gray;
+}
+
+.open > .dropdown-menu {
+  width: 110%;
 }
 
 .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {

@@ -77,7 +77,6 @@ class Workspace < ActiveRecord::Base
                                 .where("lng < ?", upper_lng)
                                 .where("lower(name) LIKE ?", "%" + workspace + "%")
 
-
      if filters[:openNow] == 'true'
       #  all_workspaces = all_workspaces.select{|workspace| workspace.open_now?}
       all_workspaces = all_workspaces.select_open_spots
