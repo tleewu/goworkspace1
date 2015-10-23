@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :images, only: [:create]
     resources :workspaces, only: [:index, :show]
-    resources :reviews, only: [:index, :create]
+    resources :reviews, only: [:create, :destroy]
     #TODO: users should be allowed to update their own reviews. Need to figure out
     #how to get current user information.
   end

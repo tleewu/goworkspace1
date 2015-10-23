@@ -39,6 +39,10 @@
           _reviews = action.workspace.reviews
           ReviewStore.changed();
           break;
+        case ReviewConstants.REVIEW_DELETED:
+          _reviews.splice(_reviews.indexOf(action.review),1);
+          ReviewStore.changed();
+          break;
       }
     })
   });

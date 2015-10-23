@@ -9,7 +9,7 @@ json.images do
 end
 
 json.reviews workspace.reviews, :body, :overall, :wifi, :power, :seating,
-                                :pricing, :updated_at
+                                :pricing, :updated_at, :user
 
 #TODO: I need to figure out how to nest the user into the reviews. Is this an
 # n+1 query?

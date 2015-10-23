@@ -70,7 +70,7 @@ class Workspace < ActiveRecord::Base
 
 
       all_workspaces = Workspace.includes(:images)
-                                .includes(:reviews)
+                                .includes(reviews: :user)
                                 .where("lat > ?", lower_lat)
                                 .where("lat < ?", upper_lat)
                                 .where("lng > ?", lower_lng)

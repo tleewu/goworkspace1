@@ -55,5 +55,15 @@ var ApiUtil = {
         window.location = "/session/new";
       }
     });
+  },
+
+  deleteReview: function (reviewId) {
+    $.ajax({
+      url: "api/reviews/" + reviewId,
+      method: "delete",
+      success: function (review) {
+        ApiActions.reviewDeleted(review);
+      }
+    });
   }
 };

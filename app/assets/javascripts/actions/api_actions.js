@@ -39,5 +39,12 @@ var ApiActions = {
       actionType: UserConstants.RECEIVED_USER,
       user: user
     });
+  },
+
+  reviewDeleted: function (review) {
+    AppDispatcher.dispatch ({
+      actionType: ReviewConstants.REVIEW_DELETED,
+      review: review
+    });
   }
 };

@@ -11,7 +11,7 @@
     getInitialState: function () {
       var workspaceId = parseInt(this.props.params.workspaceId);
       var workspace = this._findWorkspaceById(workspaceId) || {};
-      return ({workspace: workspace});
+      return ({workspace: workspace, currentUser: {}});
     },
 
     _findWorkspaceById: function (workspaceId) {
@@ -38,6 +38,12 @@
     componentDidMount: function () {
       WorkspaceItemStore.addChangeListener(this._updateWorkspaceIfNotInStore);
       ApiActions.listOutAllReviews(this.state.workspace.reviews);
+      UserStore.addChangeListener(this._getCurrentUser);
+      ApiUtil.fetchCurrentUser();
+    },
+
+    _getCurrentUser: function () {
+      this.setState({currentUser: UserStore.get()});
     },
 
     componentWillUnmount: function () {
@@ -75,8 +81,9 @@
                 <div className="col-md-8 col-md-offset-2" id="workspace-reviews">
                   <div id="all-reviews"> ALL REVIEWS: </div>
                   <br/>
-                  <ReviewForm createReview={this._createReview} />
-                  <ReviewIndex />
+                  <ReviewForm currentUser={this.state.currentUser} createReview={this._createReview} />
+                  <hr />
+                  <ReviewIndex currentUser={this.state.currentUser}/>
                 </div>
               </div>
            </div>

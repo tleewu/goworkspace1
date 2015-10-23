@@ -15,13 +15,8 @@
             });
     },
 
-    componentDidMount: function () {
-      UserStore.addChangeListener(this._getCurrentUser);
-      ApiUtil.fetchCurrentUser();
-    },
-
-    _getCurrentUser: function () {
-      this.setState({currentUser: UserStore.get()});
+    componentWillReceiveProps: function (newProps) {
+      this.setState({currentUser: newProps.currentUser});
     },
 
     componentWillUnmount: function () {
@@ -98,7 +93,7 @@
             <div className="col-md-6">
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                  <input id="review-form-input" type="textarea" placeholder = "What did you think?" value = {this.state.body}
+                  <textarea id="review-form-input" placeholder = "What did you think?" value = {this.state.body}
                     onChange={this.updateBody}/>
                 </div>
                 <div className="row" id="ratings">
