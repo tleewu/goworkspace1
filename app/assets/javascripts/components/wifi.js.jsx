@@ -16,7 +16,7 @@
       case 1:
         return (
           <div>
-            <img src="https://res.cloudinary.com/goworkspace/image/upload/v1445540515/wifi-1_usukcq.png" height="50px" width="50px"/>
+            <img src="https://res.cloudinary.com/goworkspace/image/upload/v1445635122/wifi-icon-1_wjakkk.png" height="50px" width="50px"/>
             <div id="rating-type">
               WIFI
             </div>
@@ -26,7 +26,7 @@
       case 2:
         return (
           <div>
-            <img src="https://res.cloudinary.com/goworkspace/image/upload/v1445540506/wifi-2_gg5nm9.png" height="50px" width="50px"/>
+            <img src="https://res.cloudinary.com/goworkspace/image/upload/v1445635133/wifi-icon-2_auzwsv.png" height="50px" width="50px"/>
             <div id="rating-type">
               WIFI
             </div>
@@ -36,7 +36,7 @@
       case 3:
         return (
           <div>
-            <img src="https://res.cloudinary.com/goworkspace/image/upload/v1445540494/wifi-3_hrkpht.png" height="50px" width="50px"/>
+            <img src="http://res.cloudinary.com/goworkspace/image/upload/v1445635283/wifi-icon-3_oaf5oj.png" height="50px" width="50px"/>
             <div id="rating-type">
               WIFI
             </div>
@@ -46,7 +46,7 @@
       case 4:
         return (
           <div>
-            <img src="https://res.cloudinary.com/goworkspace/image/upload/v1445540486/wifi-4_p35clq.png" height="50px" width="50px"/>
+            <img src="https://res.cloudinary.com/goworkspace/image/upload/v1445635150/wifi-icon-4_mc8m2e.png" height="50px" width="50px"/>
             <div id="rating-type">
               WIFI
             </div>

@@ -9,7 +9,7 @@
               wifi: 1,
               power: 1,
               seating: 1,
-              pricing: 1,
+              pricing: 0,
               hover: 0,
               currentUser: {}
             });
@@ -59,7 +59,7 @@
       this.props.createReview({body: this.state.body, overall: this.state.overall,
                                wifi: this.state.wifi, power: this.state.power,
                                seating: this.state.seating, pricing: this.state.pricing});
-      this.setState({body: '', overall: 0, wifi: 1, power: 1, pricing: 1, seating: 1, hover:0 });
+      this.setState({body: '', overall: 0, wifi: 1, power: 1, pricing: 0, seating: 1, hover:0, hoverPrice: 0});
     },
 
     _updateHover: function (id) {
@@ -72,6 +72,18 @@
 
     _updateUnhover: function () {
       this.setState({hover: this.state.overall});
+    },
+
+    _updatePriceHover: function (id) {
+      this.setState({hoverPrice: parseInt(id)});
+    },
+
+    _updatePriceClick: function (id) {
+      this.setState({pricing: parseInt(id)});
+    },
+
+    _updatePriceUnhover: function () {
+      this.setState({hoverPrice: this.state.pricing});
     },
 
     render: function () {
@@ -103,6 +115,9 @@
                 <div className="col-md-4">
                   <Power rating={this.state.power} />
                 </div>
+                <div className="col-md-4" id="seating">
+                  <Seating rating={this.state.seating} />
+                </div>
               </div>
               <div className="form-group" >
                 <input type="range" id="input-slider-bar" value = {this.state.wifi} min="1" max="5" step="1"
@@ -128,6 +143,23 @@
                 <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
                   overall={this.state.overall} updateClick={this._updateClick}
                   updateUnhover={this._updateUnhover}/>
+              </div>
+              <div className="form-group">
+                <Price id="1" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                  updateUnhover={this._updatePriceUnhover}/>
+                <Price id="2" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                  updatePriceUnhover={this._updatePriceUnhover}/>
+                <Price id="3" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                  updatePriceUnhover={this._updatePriceUnhover}/>
+                <Price id="4" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                  updatePriceUnhover={this._updatePriceUnhover}/>
+                <Price id="5" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                  updatePriceUnhover={this._updatePriceUnhover}/>
               </div>
               <input type="submit" value = "Create review" />
             </form>
