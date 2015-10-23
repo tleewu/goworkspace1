@@ -28,7 +28,7 @@
 
     handleSubmit: function (e) {
       e.preventDefault();
-      if (this.state.workspace > 0) {
+      if (this.state.workspace.length > 0) {
         FilterActions.updateSearchQuery(this.state.workspace);
       }
 
