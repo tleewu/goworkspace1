@@ -23,7 +23,8 @@
       ReviewStore.removeChangeListener(this._updateAllReviews);
     },
 
-    _deleteReview: function (reviewId) {
+    _deleteReview: function (reviewId, e) {
+      e.preventDefault();
       ApiUtil.deleteReview(reviewId);
     },
 
@@ -35,9 +36,11 @@
             this.state.reviews.map(function (review) {
               var firstLetterLastName = review.user.last_name[0];
               var deleteReview;
-              if (review.user.id == that.state.currentUser.id) {
-                deleteReview = <div> <button onClick={that._deleteReview(review.id)}> Delete </button> </div>;
+
+              if (review.user_id == that.state.currentUser.id) {
+                deleteReview = <div> <button onClick={that._deleteReview.bind(null, review.id)}> Delete </button> </div>;
               }
+
               return (
                 <div className="row">
                   <div className="col-md-1" id="user-profile-pic-review">

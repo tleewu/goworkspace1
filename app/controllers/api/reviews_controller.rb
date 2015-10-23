@@ -4,7 +4,7 @@ class Api::ReviewsController < ApplicationController
     @review.user_id = current_user.id
     if @review.save
       Workspace.update_ratings(review_params)
-      render json: @review
+      render 'review'
     else
       render json: @review.errors.full_messages
     end
@@ -13,7 +13,7 @@ class Api::ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    render json: @review
+    render 'review'
   end
 
   private
