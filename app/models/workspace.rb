@@ -20,23 +20,23 @@ class Workspace < ActiveRecord::Base
     end
   end
 
-  def update_rating_for (rating, new_rating)
+  def update_rating_for (rating, new_rating, value)
     case (rating)
     when (:wifi)
       num_rating_reviews = self.num_wifi_ratings
-      self.num_wifi_ratings += 1
+      self.num_wifi_ratings += value
     when (:power)
       num_rating_reviews = self.num_power_ratings
-      self.num_power_ratings += 1
+      self.num_power_ratings += value
     when (:seating)
       num_rating_reviews = self.num_seating_ratings
-      self.num_seating_ratings += 1
+      self.num_seating_ratings += value
     when (:pricing)
       num_rating_reviews = self.num_pricing_ratings
-      self.num_pricing_ratings += 1
+      self.num_pricing_ratings += value
     end
 
-    self[rating] = (num_rating_reviews * self[rating] + new_rating) / (num_rating_reviews + 1)
+    self[rating] = (num_rating_reviews * self[rating] + new_rating) / (num_rating_reviews + value)
 
   end
 
@@ -46,12 +46,45 @@ class Workspace < ActiveRecord::Base
 
     workspace.overall = (workspace.overall * (num_of_reviews - 1) + parameters[:overall].to_f) / num_of_reviews
 
-    workspace.update_rating_for(:wifi, parameters[:wifi].to_f) if parameters[:wifi]
-    workspace.update_rating_for(:power, parameters[:power].to_f) if parameters[:power]
-    workspace.update_rating_for(:seating, parameters[:seating].to_f) if parameters[:seating]
-    workspace.update_rating_for(:pricing, parameters[:pricing].to_f) if parameters[:pricing]
+    workspace.update_rating_for(:wifi, parameters[:wifi].to_f, 1) if parameters[:wifi]
+    workspace.update_rating_for(:power, parameters[:power].to_f, 1) if parameters[:power]
+    workspace.update_rating_for(:seating, parameters[:seating].to_f, 1) if parameters[:seating]
+    workspace.update_rating_for(:pricing, parameters[:pricing].to_f, 1) if parameters[:pricing]
 
     workspace.save!
+  end
+
+  def reset_all_ratings
+    self.wifi = 1
+    self.power = 1
+    self.seating = 1
+    self.overall = 1
+    self.pricing = 1
+
+    self.num_wifi_ratings = 0
+    self.num_power_ratings = 0
+    self.num_pricing_ratings = 0
+    self.num_seating_ratings = 0
+
+    self.save!
+  end
+
+  def self.update_ratings_when_deleted (review)
+    workspace = review.workspace
+    num_of_reviews = workspace.reviews.length
+
+    if (num_of_reviews - 1 == 0)
+      workspace.reset_all_ratings
+    else
+      workspace.overall = (workspace.overall * (num_of_reviews) - review.overall.to_f) / (num_of_reviews - 1)
+
+      workspace.update_rating_for(:wifi, -(review.wifi.to_f), -1) if review.wifi
+      workspace.update_rating_for(:power, -(review.power.to_f), -1) if review.power
+      workspace.update_rating_for(:seating, -(review.seating.to_f), -1) if review.seating
+      workspace.update_rating_for(:pricing, -(review.pricing.to_f), -1) if review.pricing
+
+      workspace.save!
+    end
   end
 
   def self.find_all(filters)

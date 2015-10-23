@@ -12,6 +12,7 @@ class Api::ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
+    Workspace.update_ratings_when_deleted(@review)
     @review.destroy
     render 'review'
   end
