@@ -12,6 +12,7 @@
       if (this.props.currentUser) {
         currentUser = this.props.currentUser;
       }
+
       return {reviews: reviews, currentUser: currentUser};
     },
 
@@ -19,13 +20,17 @@
       this.setState({reviews: ReviewStore.all()});
     },
 
-    _updateCurrentUser: function () {
-      this.setState({currentUser: UserStore.get()});
-    },
+    // _updateCurrentUser: function () {
+    //   debugger;
+    //   this.setState({currentUser: UserStore.get()});
+    // },
 
     componentDidMount: function () {
-      UserStore.addChangeListener(this._updateCurrentUser);
+      // UserStore.addChangeListener(this._updateCurrentUser);
       ReviewStore.addChangeListener(this._updateAllReviews);
+      if (!this.props.currentUser) {
+        ApiUtil.fetchCurrentUser();
+      }
     },
 
     componentWillUnmount: function () {
@@ -61,7 +66,7 @@
                     {review.user.location}
                     {deleteReview}
                   </div>
-                  <div className="col-md-6" id="review-body">
+                  <div className="col-md-8" id="review-body">
                       <div className="col-md-2 col-md-offset-1">
                         Overall: {review.overall}
                       </div>

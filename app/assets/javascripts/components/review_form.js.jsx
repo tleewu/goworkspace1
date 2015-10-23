@@ -80,60 +80,61 @@
         firstLetterLastName = this.state.currentUser.last_name[0];
       }
       return (
-        <div className="container">
-          <div className="row">
-            <div className="col-md-1" id="user-profile-pic-review" >
-              <img src={this.state.currentUser.profile_image_url} className='img-circle' height="30px" width="30px"/>
-            </div>
-            <div className="col-md-1" id="user-info-review">
-              {this.state.currentUser.first_name} {firstLetterLastName}.
-              <br/>
-              {this.state.currentUser.location}
-            </div>
-            <div className="col-md-6">
-              <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  <textarea id="review-form-input" placeholder = "What did you think?" value = {this.state.body}
-                    onChange={this.updateBody}/>
+
+        <div className="row">
+          <div className="col-md-2" id="user-profile-pic-review" >
+            <img src={this.state.currentUser.profile_image_url} className='img-circle' height="30px" width="30px"/>
+          </div>
+          <div className="col-md-2" id="user-info-review">
+            {this.state.currentUser.first_name} {firstLetterLastName}.
+            <br/>
+            {this.state.currentUser.location}
+          </div>
+          <div className="col-md-8">
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <textarea id="review-form-input" placeholder = "What did you think?" value = {this.state.body}
+                  onChange={this.updateBody}/>
+              </div>
+              <div className="row" id="ratings">
+                <div className="col-md-4">
+                  <Wifi rating={this.state.wifi} />
                 </div>
-                <div className="row" id="ratings">
-                  <div className="col-md-4">
-                    <Wifi rating={this.state.wifi} />
-                  </div>
-                  <div className="col-md-4">
-                    <Power rating={this.state.power} />
-                  </div>
+                <div className="col-md-4">
+                  <Power rating={this.state.power} />
                 </div>
-                <div className="form-group" >
-                  <input type="range" id="input-slider-bar" value = {this.state.wifi} min="1" max="5" step="1"
-                    onChange={this.updateWifi}/>
-                  <input type="range" id="input-slider-bar" value = {this.state.power} min="1" max="5" step="1"
-                     onChange={this.updatePower}/>
-                  <input type="range" id="input-slider-bar" value = {this.state.seating} min="1" max="5" step="1"
-                     onChange={this.updateSeating}/>
-                </div>
-                <div className="form-group">
-                  <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
-                    overall={this.state.overall} updateClick={this._updateClick}
-                    updateUnhover={this._updateUnhover}/>
-                  <Star id="2" updateHover={this._updateHover} hoverId={this.state.hover}
-                    overall={this.state.overall} updateClick={this._updateClick}
-                    updateUnhover={this._updateUnhover}/>
-                  <Star id="3" updateHover={this._updateHover} hoverId={this.state.hover}
-                    overall={this.state.overall} updateClick={this._updateClick}
-                    updateUnhover={this._updateUnhover}/>
-                  <Star id="4" updateHover={this._updateHover} hoverId={this.state.hover}
-                    overall={this.state.overall} updateClick={this._updateClick}
-                    updateUnhover={this._updateUnhover}/>
-                  <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
-                    overall={this.state.overall} updateClick={this._updateClick}
-                    updateUnhover={this._updateUnhover}/>
-                </div>
-                <input type="submit" value = "Create review" />
-              </form>
-            </div>
+              </div>
+              <div className="form-group" >
+                <input type="range" id="input-slider-bar" value = {this.state.wifi} min="1" max="5" step="1"
+                  onChange={this.updateWifi}/>
+                <input type="range" id="input-slider-bar" value = {this.state.power} min="1" max="5" step="1"
+                   onChange={this.updatePower}/>
+                <input type="range" id="input-slider-bar" value = {this.state.seating} min="1" max="5" step="1"
+                   onChange={this.updateSeating}/>
+              </div>
+              <div className="form-group">
+                <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
+                  overall={this.state.overall} updateClick={this._updateClick}
+                  updateUnhover={this._updateUnhover}/>
+                <Star id="2" updateHover={this._updateHover} hoverId={this.state.hover}
+                  overall={this.state.overall} updateClick={this._updateClick}
+                  updateUnhover={this._updateUnhover}/>
+                <Star id="3" updateHover={this._updateHover} hoverId={this.state.hover}
+                  overall={this.state.overall} updateClick={this._updateClick}
+                  updateUnhover={this._updateUnhover}/>
+                <Star id="4" updateHover={this._updateHover} hoverId={this.state.hover}
+                  overall={this.state.overall} updateClick={this._updateClick}
+                  updateUnhover={this._updateUnhover}/>
+                <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
+                  overall={this.state.overall} updateClick={this._updateClick}
+                  updateUnhover={this._updateUnhover}/>
+              </div>
+              <input type="submit" value = "Create review" />
+            </form>
           </div>
         </div>
+
+
       )
     }
   });
