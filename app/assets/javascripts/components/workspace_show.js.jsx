@@ -1,28 +1,21 @@
 (function(root){
 
-  "use strict"
-
-  //TODO: does React break if there is no objects in my WorkspaceStore? When does
-  // my WorkspaceStore get set to empty? _workspace is probably being reset to a
-  // non-array, since error message is slice is not a property.
+  "use strict";
 
   var WorkspaceShow = root.WorkspaceShow = React.createClass({
 
     getInitialState: function () {
-      var workspaceId = parseInt(this.props.params.workspaceId);
-      var workspace = this._findWorkspaceById(workspaceId) || {};
-      return ({workspace: workspace, currentUser: {}});
+      return ({workspace: {}, currentUser: {}, reviews: []});
     },
 
     _findWorkspaceById: function (workspaceId) {
-      var workspaces = WorkspaceStore.all();
-      for (var i = 0; i < workspaces.length; i++ ) {
-        if (workspaces[i].id === workspaceId) {
-          return workspaces[i];
-        }
-      }
+      // var workspaces = WorkspaceStore.all();
+      // for (var i = 0; i < workspaces.length; i++ ) {
+      //   if (workspaces[i].id === workspaceId) {
+      //     return workspaces[i];
+      //   }
+      // }
 
-      ApiUtil.fetchOneWorkspace(workspaceId);
       return {};
     },
 
@@ -32,17 +25,24 @@
     },
 
     _updateWorkspaceIfNotInStore: function () {
-      this.setState({workspace: WorkspaceItemStore.all()});
+      var workspace = WorkspaceItemStore.all();
+      this.setState({workspace: workspace});
+    },
+
+    _getCurrentUser: function () {
+      this.setState({currentUser: UserStore.get()});
+    },
+
+    _updateReviews: function () {
+      this.setState({reviews: ReviewStore.all()});
     },
 
     componentDidMount: function () {
       WorkspaceItemStore.addChangeListener(this._updateWorkspaceIfNotInStore);
       UserStore.addChangeListener(this._getCurrentUser);
+      ReviewStore.addChangeListener(this._updateReviews);
+      ApiUtil.fetchOneWorkspace(parseInt(this.props.params.workspaceId));
       ApiUtil.fetchCurrentUser();
-    },
-
-    _getCurrentUser: function () {
-      this.setState({currentUser: UserStore.get()});
     },
 
     componentWillUnmount: function () {
@@ -83,7 +83,7 @@
                   <br/>
                   <ReviewForm currentUser={this.state.currentUser} createReview={this._createReview} />
                   <hr />
-                  <ReviewIndex allReviews={this.state.workspace.reviews} currentUser={this.state.currentUser}/>
+                  <ReviewIndex allReviews={this.state.reviews} currentUser={this.state.currentUser}/>
                 </div>
               </div>
            </div>
