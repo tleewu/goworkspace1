@@ -5,7 +5,6 @@
   var ReviewIndex = root.ReviewIndex = React.createClass({
     getInitialState: function () {
       var reviews = [], currentUser = {};
-
       if (this.props.allReviews) {
         reviews = this.props.allReviews;
       }
@@ -13,7 +12,6 @@
       if (this.props.currentUser) {
         currentUser = this.props.currentUser;
       }
-
       return {reviews: reviews, currentUser: currentUser};
     },
 
@@ -21,7 +19,12 @@
       this.setState({reviews: ReviewStore.all()});
     },
 
+    _updateCurrentUser: function () {
+      this.setState({currentUser: UserStore.get()});
+    },
+
     componentDidMount: function () {
+      UserStore.addChangeListener(this._updateCurrentUser);
       ReviewStore.addChangeListener(this._updateAllReviews);
     },
 
@@ -37,7 +40,7 @@
     render: function () {
       var that = this;
       return (
-        <div className="container">
+        <div>
           {
             this.state.reviews.map(function (review) {
               var firstLetterLastName = review.user.last_name[0];
@@ -49,17 +52,16 @@
 
               return (
                 <div className="row">
-                  <div className="col-md-1" id="user-profile-pic-review">
+                  <div className="col-md-2" id="user-profile-pic-review">
                     <img src={review.user.profile_image_url} className='img-circle' height='30px' width='30px'/>
                   </div>
-                  <div className="col-md-1" id="user-info-review">
+                  <div className="col-md-2" id="user-info-review">
                     {review.user.first_name} {firstLetterLastName}.
                     <br />
                     {review.user.location}
                     {deleteReview}
                   </div>
                   <div className="col-md-6" id="review-body">
-                    <div className="row">
                       <div className="col-md-2 col-md-offset-1">
                         Overall: {review.overall}
                       </div>
@@ -75,10 +77,9 @@
                       <div className="col-md-2">
                         Pricing: {review.pricing}
                       </div>
-                    </div>
-                    <div className="row">
+
                       {review.body}
-                    </div>
+
                   </div>
                 </div>
               );
