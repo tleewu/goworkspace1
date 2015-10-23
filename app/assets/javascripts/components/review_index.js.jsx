@@ -4,11 +4,17 @@
 
   var ReviewIndex = root.ReviewIndex = React.createClass({
     getInitialState: function () {
-      return {reviews: [], currentUser: {}};
-    },
+      var reviews = [], currentUser = {};
 
-    componentWillReceiveProps: function (newProps) {
-      this.setState({currentUser: newProps.currentUser, reviews: newProps.allReviews});
+      if (this.props.allReviews) {
+        reviews = this.props.allReviews;
+      }
+
+      if (this.props.currentUser) {
+        currentUser = this.props.currentUser;
+      }
+
+      return {reviews: reviews, currentUser: currentUser};
     },
 
     _updateAllReviews: function () {

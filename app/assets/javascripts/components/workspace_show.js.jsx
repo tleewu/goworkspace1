@@ -37,7 +37,6 @@
 
     componentDidMount: function () {
       WorkspaceItemStore.addChangeListener(this._updateWorkspaceIfNotInStore);
-      ApiActions.listOutAllReviews(this.state.workspace.reviews);
       UserStore.addChangeListener(this._getCurrentUser);
       ApiUtil.fetchCurrentUser();
     },
