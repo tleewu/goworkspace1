@@ -46,6 +46,18 @@
           FilterStore.changeBounds(action.bounds);
           FilterStore.changed();
           break;
+        case FilterConstants.CLEAR_ALL_FILTERS:
+          _filters = {workspaceName: null,
+                      bounds: {},
+                      wifi: false,
+                      openNow: false,
+                      seating: false,
+                      overall: false,
+                      power: false,
+                      pricing: false,
+                      currentSet: 0
+                     };
+          break;
         case FilterConstants.RESET_WIFI:
           _filters.wifi = !(_filters.wifi);
           FilterStore.changed();

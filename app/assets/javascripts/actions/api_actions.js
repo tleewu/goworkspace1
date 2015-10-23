@@ -19,6 +19,12 @@ var ApiActions = {
     });
   },
 
+  clearAllFiltersFromStore: function () {
+    AppDispatcher.dispatch ({
+      actionType: FilterConstants.CLEAR_ALL_FILTERS
+    });
+  },
+
   updateReviews: function (review) {
     AppDispatcher.dispatch ({
       actionType: ReviewConstants.UPDATE_REVIEWS,

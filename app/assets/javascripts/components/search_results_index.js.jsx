@@ -19,7 +19,7 @@
       FilterStore.removeChangeListener(this.queryForWorkspaces);
       WorkspaceStore.removeChangeListener(this.updateWorkspaces);
       ApiActions.clearAllWorkspacesFromStore();
-      // ApiActions.clearAllFiltersFromStore();
+      ApiActions.clearAllFiltersFromStore();
     },
 
     updateWorkspaces: function () {
