@@ -16,6 +16,14 @@
       }
     },
 
+    componentDidMount: function () {
+      FilterStore.addChangeListener(this._resetCurrentSet);
+    },
+
+    _resetCurrentSet: function () {
+      this.setState({currentSet: 0});
+    },
+
     handleNextClick: function () {
       FilterActions.incrementCurrentSet();
       this.setState({currentSet: this.state.currentSet + 1});
