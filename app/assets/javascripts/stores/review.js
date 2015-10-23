@@ -28,7 +28,7 @@
     dispatcherID: AppDispatcher.register(function (action) {
       switch (action.actionType){
         case ReviewConstants.UPDATE_REVIEWS:
-          _reviews.unshift(action.review);
+          _reviews.push(action.review);
           ReviewStore.changed();
           break;
         case WorkspaceConstants.ONE_WORKSPACE_RECEIVED:
@@ -36,7 +36,15 @@
           ReviewStore.changed();
           break;
         case ReviewConstants.REVIEW_DELETED:
-          _reviews.splice(_reviews.indexOf(action.review),1);
+          var reviewIdx;
+          for (var i = 0; i < _reviews.length; i++) {
+            if (_reviews[i].id === action.review.id) {
+              reviewIdx = i;
+              break;
+            }
+          }
+          
+          _reviews.splice(reviewIdx,1);
           ReviewStore.changed();
           break;
       }
