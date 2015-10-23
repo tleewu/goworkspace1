@@ -10,7 +10,7 @@
     },
 
     addChangeListener: function (callback) {
-      this.on(CHANGE, callback)
+      this.on(CHANGE, callback);
     },
 
     removeChangeListener: function (callback) {

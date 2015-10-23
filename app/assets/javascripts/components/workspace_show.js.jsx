@@ -47,6 +47,7 @@
     },
 
     componentWillUnmount: function () {
+      UserStore.removeChangeListener(this._getCurrentUser);
       WorkspaceStore.removeChangeListener(this._updateWorkspaceIfNotInStore);
     },
 
@@ -83,7 +84,7 @@
                   <br/>
                   <ReviewForm currentUser={this.state.currentUser} createReview={this._createReview} />
                   <hr />
-                  <ReviewIndex currentUser={this.state.currentUser}/>
+                  <ReviewIndex allReviews={this.state.workspace.reviews} currentUser={this.state.currentUser}/>
                 </div>
               </div>
            </div>

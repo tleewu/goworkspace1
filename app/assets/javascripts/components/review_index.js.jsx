@@ -7,8 +7,8 @@
       return {reviews: [], currentUser: {}};
     },
 
-    componentWillReceiveProps: function () {
-      this.setState({currentUser: this.props.currentUser});
+    componentWillReceiveProps: function (newProps) {
+      this.setState({currentUser: newProps.currentUser, reviews: newProps.allReviews});
     },
 
     _updateAllReviews: function () {
