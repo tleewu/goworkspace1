@@ -31,10 +31,6 @@
           _reviews.unshift(action.review);
           ReviewStore.changed();
           break;
-        case ReviewConstants.ALL_REVIEWS:
-          _reviews = action.reviews;
-          ReviewStore.changed();
-          break;
         case WorkspaceConstants.ONE_WORKSPACE_RECEIVED:
           _reviews = action.workspace.reviews
           ReviewStore.changed();

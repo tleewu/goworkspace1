@@ -20,13 +20,6 @@ var ApiActions = {
     });
   },
 
-  listOutAllReviews: function (reviews) {
-    AppDispatcher.dispatch ({
-      actionType: ReviewConstants.ALL_REVIEWS,
-      reviews: reviews
-    });
-  },
-
   initializeWorkspace: function (workspace) {
     AppDispatcher.dispatch ({
       actionType: WorkspaceConstants.ONE_WORKSPACE_RECEIVED,
