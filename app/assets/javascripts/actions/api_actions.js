@@ -13,6 +13,12 @@ var ApiActions = {
     });
   },
 
+  clearAllWorkspacesFromStore: function () {
+    AppDispatcher.dispatch ({
+      actionType: WorkspaceConstants.CLEAR_ALL_WORKSPACES
+    });
+  },
+
   updateReviews: function (review) {
     AppDispatcher.dispatch ({
       actionType: ReviewConstants.UPDATE_REVIEWS,

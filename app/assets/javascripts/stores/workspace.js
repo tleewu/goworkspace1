@@ -29,7 +29,10 @@
             WorkspaceStore.changed();
             break;
           }
-
+          break;
+        case WorkspaceConstants.CLEAR_ALL_WORKSPACES:
+          _workspaces = [];
+          break;
       }
     })
   });

@@ -12,13 +12,14 @@
       FilterStore.addChangeListener(this.queryForWorkspaces);
       WorkspaceStore.addChangeListener(this.updateWorkspaces);
 
-
       this.queryForWorkspaces();
     },
 
     componentWillUnmount: function () {
       FilterStore.removeChangeListener(this.queryForWorkspaces);
       WorkspaceStore.removeChangeListener(this.updateWorkspaces);
+      ApiActions.clearAllWorkspacesFromStore();
+      // ApiActions.clearAllFiltersFromStore();
     },
 
     updateWorkspaces: function () {

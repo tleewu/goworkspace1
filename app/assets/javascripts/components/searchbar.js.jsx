@@ -28,7 +28,9 @@
 
     handleSubmit: function (e) {
       e.preventDefault();
-      FilterActions.updateSearchQuery(this.state.workspace);
+      if (this.state.workspace > 0) {
+        FilterActions.updateSearchQuery(this.state.workspace);
+      }
 
       var location = this.state.location;
 

@@ -8,17 +8,6 @@
       return ({workspace: {}, currentUser: {}, reviews: []});
     },
 
-    _findWorkspaceById: function (workspaceId) {
-      // var workspaces = WorkspaceStore.all();
-      // for (var i = 0; i < workspaces.length; i++ ) {
-      //   if (workspaces[i].id === workspaceId) {
-      //     return workspaces[i];
-      //   }
-      // }
-
-      return {};
-    },
-
     _createReview: function (reviewDetails) {
       reviewDetails.workspace_id = this.state.workspace.id;
       ApiUtil.createReview(reviewDetails);
