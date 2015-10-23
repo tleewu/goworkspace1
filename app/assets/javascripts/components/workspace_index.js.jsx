@@ -11,6 +11,8 @@
       this.setState({workspaces: newProps.workspaces});
       if (newProps.workspaces[0]) {
         this.setState({maxSet: newProps.workspaces[0].maxSet});
+      } else {
+        this.setState({currentSet: 0, maxSet: 0});
       }
     },
 

@@ -44,6 +44,7 @@
       switch (action.actionType){
         case FilterConstants.RESET_BOUNDS:
           FilterStore.changeBounds(action.bounds);
+          _filters.currentSet = 0;
           FilterStore.changed();
           break;
         case FilterConstants.CLEAR_ALL_FILTERS:
@@ -60,26 +61,32 @@
           break;
         case FilterConstants.RESET_WIFI:
           _filters.wifi = !(_filters.wifi);
+          _filters.currentSet = 0;
           FilterStore.changed();
           break;
         case FilterConstants.RESET_HOURS:
           _filters.openNow = !(_filters.openNow);
+          _filters.currentSet = 0;
           FilterStore.changed();
           break;
         case FilterConstants.RESET_POWER:
           _filters.power = !(_filters.power);
+          _filters.currentSet = 0;
           FilterStore.changed();
           break;
         case FilterConstants.RESET_SEATING:
           _filters.seating = !(_filters.seating);
+          _filters.currentSet = 0;
           FilterStore.changed();
           break;
         case FilterConstants.RESET_OVERALL:
           _filters.overall = !(_filters.overall);
+          _filters.currentSet = 0;
           FilterStore.changed();
           break;
         case FilterConstants.RESET_PRICING:
           _filters.pricing = !(_filters.pricing);
+          _filters.currentSet = 0;
           FilterStore.changed();
           break;
         case FilterConstants.INCREMENT_CURRENT_SET:
@@ -92,6 +99,7 @@
           break;
         case FilterConstants.UPDATE_QUERY:
           _filters.workspaceName = action.name;
+          _filters.currentSet = 0;
           FilterStore.changed();
           break;
       }
