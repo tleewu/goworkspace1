@@ -9,7 +9,7 @@
 
     componentWillReceiveProps: function (newProps) {
       this.setState({workspaces: newProps.workspaces});
-      if (newProps.workspaces[0].maxSet) {
+      if (newProps.workspaces[0]) {
         this.setState({maxSet: newProps.workspaces[0].maxSet});
       }
     },
