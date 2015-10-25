@@ -5,7 +5,7 @@
   var WorkspaceShow = root.WorkspaceShow = React.createClass({
 
     getInitialState: function () {
-      return ({workspace: {}, currentUser: {}, reviews: []});
+      return ({workspace: {}, currentUser: {}, reviews: [], images: []});
     },
 
     _createReview: function (reviewDetails) {
@@ -15,7 +15,7 @@
 
     _updateWorkspaceIfNotInStore: function () {
       var workspace = WorkspaceItemStore.all();
-      this.setState({workspace: workspace});
+      this.setState({workspace: workspace, images: workspace.images});
     },
 
     _getCurrentUser: function () {
@@ -42,13 +42,13 @@
     render: function () {
       return (
         <div>
-          <WorkspaceShowCarousel images={this.state.workspace.images} />
           <div className="container">
+            <div className="row" id="carousel-row">
+              <WorkspaceShowCarousel images={this.state.images} />
+            </div>
             <div className="row">
-              <div className="col-md-12">
-                <div className="col-md-2 col-md-offset-5" id="workspace-profile-image">
-                  <img id="profile-workspace" src={this.state.workspace.profile_image_url} height="125px" width="125px"/>
-                </div>
+              <div className="col-md-2 col-md-offset-5" id="workspace-profile-image">
+                <img id="profile-workspace" src={this.state.workspace.profile_image_url} height="125px" width="125px"/>
               </div>
             </div>
           </div>

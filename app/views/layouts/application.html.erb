@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Work+Sans', media: 'all'%>
   <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css"/>
 </head>
 <body>
 
@@ -12,5 +15,17 @@
 
 <%= yield %>
 
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('.workspace-carousel').slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+  });
+});
+</script>
 </body>
 </html>
