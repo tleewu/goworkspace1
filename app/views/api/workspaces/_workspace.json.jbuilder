@@ -10,6 +10,3 @@ end
 
 json.reviews workspace.reviews, :id, :body, :overall, :wifi, :power, :seating,
                                 :pricing, :updated_at, :user
-
-#TODO: I need to figure out how to nest the user into the reviews. Is this an
-# n+1 query?

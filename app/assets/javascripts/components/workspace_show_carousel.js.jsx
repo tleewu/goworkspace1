@@ -13,16 +13,23 @@
 
     render: function () {
       var allImages = this.state.allImages;
+      var settings = {
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 4000
+      };
+
       return (
-        <div className="workspace-carousel">
+        <Slider {...settings}>
           {
             allImages.map(function(image) {
               return (
-                <img src={image.url} height="200px" width="200px" />
+                <div> <img src={image.url} height="200px" width="200px"/> </div>
               );
             })
           }
-        </div>
+        </Slider>
       )
     }
   });

@@ -52,7 +52,7 @@
               </div>
             </div>
           </div>
-          <br/><br/>
+          <br/>
           <div className="below-carousel">
             <div className="container">
               <div className="row">

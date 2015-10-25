@@ -8,9 +8,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.slick-track span {
+  display: none;
+}
+
 nav {
-    margin-bottom: 0px;
-    height: 50px;
+  margin-bottom: 0px;
+  height: 50px;
 }
 
 #carousel-row {
@@ -108,7 +112,7 @@ hr {
 #profile-workspace {
   position:relative;
   z-index: 1000;
-  top: -62px;
+  top: -90px;
   border: 1px solid black;
 }
 

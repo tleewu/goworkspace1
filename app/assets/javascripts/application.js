@@ -19,5 +19,6 @@
 //= require react
 //= require react_ujs
 //= require reactrouter.min
+//= require react-slick.min
 //= require components
 //= require_tree .

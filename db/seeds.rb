@@ -60,3 +60,17 @@ Image.create!({url: "http://i.imgur.com/ElsMe71.png",
               imageable_type: "Workspace", imageable_id: 1})
 Image.create!({url: "https://fooddouche.files.wordpress.com/2015/04/img_2219.jpg?w=490",
               imageable_type: "Workspace", imageable_id: 1})
+Image.create!({url: "https://s3-media1.fl.yelpcdn.com/bphoto/c5qCq3fUeRJq1we8ufAQMA/ls.jpg",
+              imageable_type: "Workspace", imageable_id: 1})
+Image.create!({url: "https://s3-media3.fl.yelpcdn.com/bphoto/2YG2rOrXNrH8b-xLXK8NgA/ls.jpg",
+              imageable_type: "Workspace", imageable_id: 1})
+Image.create!({url: "https://s3-media1.fl.yelpcdn.com/bphoto/jNjM0bXkJWdkHny5iLJyVg/o.jpg",
+              imageable_type: "Workspace", imageable_id: 1})
+Image.create!({url: "https://s3-media1.fl.yelpcdn.com/bphoto/jNjM0bXkJWdkHny5iLJyVg/o.jpg",
+              imageable_type: "Workspace", imageable_id: 1})
+Image.create!({url: "https://s3-media1.fl.yelpcdn.com/bphoto/jNjM0bXkJWdkHny5iLJyVg/o.jpg",
+              imageable_type: "Workspace", imageable_id: 1})
+Image.create!({url: "https://s3-media1.fl.yelpcdn.com/bphoto/c5qCq3fUeRJq1we8ufAQMA/ls.jpg",
+              imageable_type: "Workspace", imageable_id: 1})
+Image.create!({url: "https://s3-media3.fl.yelpcdn.com/bphoto/2YG2rOrXNrH8b-xLXK8NgA/ls.jpg",
+              imageable_type: "Workspace", imageable_id: 1})
