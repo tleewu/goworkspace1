@@ -48,11 +48,17 @@
       var power = 1;
       var seating = 1;
       var pricing = 1;
+      var workspaceName;
+
       if (workspace.wifi) {
         wifi = Math.round(workspace.wifi);
         power = Math.round(workspace.power);
         seating = Math.round(workspace.seating);
         pricing = Math.round(workspace.pricing);
+      }
+
+      if (workspace.name) {
+        workspaceName = workspace.name.toUpperCase();
       }
 
       while (idx <= workspace.overall) {
@@ -67,10 +73,20 @@
 
       var currentDay = new Date().getDay();
       var workspaceHours;
+      var opening;
+      var closing;
       if (currentDay !== 0 && currentDay !== 7) {
-        workspaceHours = <div> Open today from {workspace.weekday_opening} until {workspace.weekday_closing} </div>
+        if (workspace.weekday_opening) {
+          opening = workspace.weekday_opening.slice(11,16);
+          closing = workspace.weekday_closing.slice(11,16);
+        }
+        workspaceHours = <div> Open today from {opening} until {closing} </div>
       } else {
-        workspaceHours = <div> Open today from {workspace.weekend_opening} until {workspace.weekend_closing} </div>
+        if (workspace.weekend_opening) {
+          opening = workspace.weekend_opening.slice(11,16);
+          closing = workspace.weekend_closing.slice(11,16);
+        }
+        workspaceHours = <div> Open today from {opening} until {closing} </div>
       }
       return (
         <div>
@@ -89,16 +105,13 @@
             <div className="container">
               <div className="row">
                 <div className="col-md-2 col-md-offset-5" id="workspace-title">
-                  <div id="workspace-info-name"> {this.state.workspace.name} </div>
+                  <h4> <b> {workspaceName} </b> </h4>
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-4 col-md-offset-4">
+                <div className="col-md-4 col-md-offset-4" id="workspace-information">
                   {this.state.workspace.street_address}, {this.state.workspace.city_address}
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-4 col-md-offset-4">
+                  <br/>
                   {workspaceHours}
                 </div>
               </div>
