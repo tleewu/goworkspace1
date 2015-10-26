@@ -75,5 +75,5 @@ Image.create!({url: "https://s3-media1.fl.yelpcdn.com/bphoto/c5qCq3fUeRJq1we8ufA
 Image.create!({url: "https://s3-media3.fl.yelpcdn.com/bphoto/2YG2rOrXNrH8b-xLXK8NgA/ls.jpg",
               imageable_type: "Workspace", imageable_id: 1})
 
-User.create!({username: "guest@guest.com", first_name: Theo, last_name: Wu,
+User.create!({email: "guest@guest.com", password_digest: BCrypt::Password.create("password"), first_name: "Theo", last_name: "Wu",
               location: "San Francisco, CA"})

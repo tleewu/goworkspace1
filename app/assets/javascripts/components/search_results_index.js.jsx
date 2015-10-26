@@ -11,7 +11,8 @@
     componentDidMount: function () {
       FilterStore.addChangeListener(this.queryForWorkspaces);
       WorkspaceStore.addChangeListener(this.updateWorkspaces);
-
+      ApiActions.resetMapCenter({lat: 37.7833, lng: -122.4167});
+      
       this.queryForWorkspaces();
     },
 

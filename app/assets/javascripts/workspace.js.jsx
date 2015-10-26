@@ -3,7 +3,7 @@ $(function() {
 
   var Router = ReactRouter.Router;
   var Route = ReactRouter.Route;
-  // var IndexRoute = ReactRouter.IndexRoute;
+  var IndexRoute = ReactRouter.IndexRoute;
 
   var App = React.createClass({
     render: function () {
@@ -18,7 +18,7 @@ $(function() {
 
   var routes = (
     <Route path="/" component={App}>
-      <Route path="search" component={SearchResultsIndex} />
+      <IndexRoute path="search" component={SearchResultsIndex} />
       <Route path="workspace/:workspaceId" component={WorkspaceShow} />
     </Route>
 
