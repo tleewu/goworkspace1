@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_not_logged_in
-    if current_user
+    if session[:session_token]
       redirect_to root_path
     end
   end
