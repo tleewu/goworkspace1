@@ -55,6 +55,33 @@ nav {
   margin-top: -15px;
 }
 
+#ratings-star {
+  position: relative;
+  top: 7px;
+  font-size: 1.8em;
+}
+
+#overall-review-form {
+  padding-bottom: 10px;
+  position:relative;
+  float:right;
+  top:-5px;
+  margin-right: 30px;
+}
+
+#pricing-review-form {
+  margin-left:30px;
+}
+
+#create-review {
+  float:right;
+  font-size: 12px;
+  margin-right: 30px;
+  background-color: #000080;
+  letter-spacing: 2px;
+  color:white;
+}
+
 #review-form-input {
   width: 100%;
   height: 100px;

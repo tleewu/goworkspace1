@@ -59,7 +59,7 @@
       this.props.createReview({body: this.state.body, overall: this.state.overall,
                                wifi: this.state.wifi, power: this.state.power,
                                seating: this.state.seating, pricing: this.state.pricing});
-      this.setState({body: '', overall: 0, wifi: 1, power: 1, pricing: 0, seating: 1, hover:0, hoverPrice: 0});
+      this.setState({body: '', overall: 1, wifi: 1, power: 1, pricing: 1, seating: 1, hover:0, hoverPrice: 0});
     },
 
     _updateHover: function (id) {
@@ -88,9 +88,11 @@
 
     render: function () {
       var firstLetterLastName = '';
+
       if (this.state.currentUser.last_name) {
         firstLetterLastName = this.state.currentUser.last_name[0];
       }
+
       return (
 
         <div className="row">
@@ -128,40 +130,44 @@
                    onChange={this.updateSeating}/>
               </div>
               <div className="form-group">
-                <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
-                  overall={this.state.overall} updateClick={this._updateClick}
-                  updateUnhover={this._updateUnhover}/>
-                <Star id="2" updateHover={this._updateHover} hoverId={this.state.hover}
-                  overall={this.state.overall} updateClick={this._updateClick}
-                  updateUnhover={this._updateUnhover}/>
-                <Star id="3" updateHover={this._updateHover} hoverId={this.state.hover}
-                  overall={this.state.overall} updateClick={this._updateClick}
-                  updateUnhover={this._updateUnhover}/>
-                <Star id="4" updateHover={this._updateHover} hoverId={this.state.hover}
-                  overall={this.state.overall} updateClick={this._updateClick}
-                  updateUnhover={this._updateUnhover}/>
-                <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
-                  overall={this.state.overall} updateClick={this._updateClick}
-                  updateUnhover={this._updateUnhover}/>
+                <span id="pricing-review-form">
+                  <span id="rating-type"> PRICING </span>
+                  <Price id="1" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                    pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                    updateUnhover={this._updatePriceUnhover}/>
+                  <Price id="2" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                    pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                    updatePriceUnhover={this._updatePriceUnhover}/>
+                  <Price id="3" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                    pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                    updatePriceUnhover={this._updatePriceUnhover}/>
+                  <Price id="4" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                    pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                    updatePriceUnhover={this._updatePriceUnhover}/>
+                  <Price id="5" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
+                    pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
+                    updatePriceUnhover={this._updatePriceUnhover}/>
+                </span>
+                <span id="overall-review-form">
+                  <span id="rating-type"> OVERALL </span>
+                  <Star id="1" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                  <Star id="2" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                  <Star id="3" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                  <Star id="4" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                  <Star id="5" updateHover={this._updateHover} hoverId={this.state.hover}
+                    overall={this.state.overall} updateClick={this._updateClick}
+                    updateUnhover={this._updateUnhover}/>
+                </span>
               </div>
-              <div className="form-group">
-                <Price id="1" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
-                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
-                  updateUnhover={this._updatePriceUnhover}/>
-                <Price id="2" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
-                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
-                  updatePriceUnhover={this._updatePriceUnhover}/>
-                <Price id="3" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
-                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
-                  updatePriceUnhover={this._updatePriceUnhover}/>
-                <Price id="4" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
-                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
-                  updatePriceUnhover={this._updatePriceUnhover}/>
-                <Price id="5" updatePriceHover={this._updatePriceHover} hoverId={this.state.hoverPrice}
-                  pricing={this.state.pricing} updatePriceClick={this._updatePriceClick}
-                  updatePriceUnhover={this._updatePriceUnhover}/>
-              </div>
-              <input type="submit" value = "Create review" />
+              <input id="create-review" type="submit" value = "WRITE REVIEW" />
             </form>
           </div>
         </div>

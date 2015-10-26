@@ -36,14 +36,3 @@
 
 
 }(this));
-
-
-// {
-//   this.props.images.map (function (image) {
-//     return (
-//       <div id="workspace-image">
-//         <img src = {image.url} height="198px"/>
-//       </div>
-//     )
-//   })
-// }

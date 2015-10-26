@@ -46,9 +46,9 @@
     render: function () {
       var star;
       if (this.state.filled) {
-        star = <span className="glyphicon glyphicon-star"> </span>;
+        star = <span className="glyphicon glyphicon-star" id="ratings-star"> </span>;
       } else {
-        star = <span className="glyphicon glyphicon-star-empty"></span>;
+        star = <span className="glyphicon glyphicon-star-empty" id="ratings-star"></span>;
       }
 
       return (
