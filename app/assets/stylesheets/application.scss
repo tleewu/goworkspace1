@@ -188,6 +188,20 @@ hr {
   padding-bottom: 100%;
 }
 
+.fixed {
+  position: fixed;
+  top: 6%;
+  right: 0%;
+  width: 45%;
+}
+
+.scrollit {
+  float: left;
+  position: relative;
+  top: 38px;
+  width: 55%;
+}
+
 .filter-bar {
   margin-top: 20px;
   background-color: #f0f0f0;

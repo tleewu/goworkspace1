@@ -5,7 +5,7 @@
   var NavBar = root.NavBar = React.createClass({
     render: function () {
       return (
-        <nav className = "navbar navbar-default">
+        <nav className = "navbar navbar-default navbar-fixed-top">
           <div className = "container-fluid">
             <div className="row">
               <div className="col-md-1" id="logo-bar-properties">

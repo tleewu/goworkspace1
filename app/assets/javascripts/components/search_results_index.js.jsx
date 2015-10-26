@@ -58,11 +58,11 @@
       return (
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-md-7 scrollit">
               <FilterBar updateFilter = {this.updateFilter} />
               <WorkspaceIndex workspaces={this.state.workspaces}/>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-5 fixed">
               <Map />
             </div>
           </div>
