@@ -8,6 +8,20 @@ body {
   background-repeat: no-repeat;
 }
 
+.upload_button {
+  font-family: "Work Sans", sans-serif;
+  border-radius: 0px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: black;
+  background-color: #e5b6bb;
+  padding: 5px 10px;
+  &:hover {
+    text-decoration: none;
+    background-color: #f08080;
+  }
+}
+
 #logout {
   font-size: 13px;
   text-align: center;
@@ -132,6 +146,11 @@ nav {
   &:hover {
     background-color: #f08080;
   }
+}
+
+#login-title {
+  font-family: 'Pacifico';
+  font-size: 25px;
 }
 
 #guest-login {

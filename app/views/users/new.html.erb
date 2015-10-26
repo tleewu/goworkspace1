@@ -27,13 +27,11 @@
             <div class = "form-group">
               <input type="password" class="input-large" name="user[password]" placeholder="Enter a password: " value= "<%= @user.password %>">
             </div>
-
-            <div class = "form-group">
-              <input type="text" id="opener" name="user[profile_image_url]" placeholder="Profile Pic" value= "<%= @user.profile_image_url %>">
+            <div class = "form-group" style="margin-top:25px; margin-bottom:20px;">
+              <input type="text" id="opener" name="user[profile_image_url]" value= "<%= @user.profile_image_url %>">
             </div>
-            <a style="color:white" href="/session/new"> Already a user? </a>
-            <br><br>
-            <button type="submit" class="btn btn-default">Register</button><br><br>
+            <a style="color:white" href="/session/new"> Already a user? </a> &nbsp&nbsp&nbsp
+            <button type="submit" class="btn btn-default" id="guest-login">REGISTER</button><br><br>
           </div>
         </form>
       </div>
@@ -45,7 +43,8 @@
   <script type="text/javascript">
     $('#opener').cloudinary_upload_widget(
       { cloud_name: 'goworkspace', upload_preset: 'l3scxvxg',
-        theme: 'minimal', cropping: 'server', 'folder': 'user_photos' },
+        theme: 'minimal', cropping: 'server', 'folder': 'user_photos',
+        button_caption: "UPLOAD PROFILE PICTURE", button_class: 'upload_button'},
       function(error, result) {
           document.getElementById('opener').value = result[0].secure_url;
           document.getElementsByClassName('cloudinary-button')[0].style.display = "none";
