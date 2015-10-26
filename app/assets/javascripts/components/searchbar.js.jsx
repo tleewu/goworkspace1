@@ -54,11 +54,11 @@
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-5" id="search-bar-properties">
-                <input className="search-bar" type="text" placeholder = "Search for your favorite workspace"
+                <input className="search-bar" type="text" placeholder = "Search..."
                   value={this.state.workspace} onChange = {this.updateWorkspace}/>
               </div>
               <div className="col-md-5" id="search-bar-properties">
-                <input className="search-bar" type="text" placeholder = "Where?" value = {this.state.location}
+                <input className="search-bar" type="text" placeholder = "Where would you like to work?" value = {this.state.location}
                   onChange={this.updateLocation}/>
               </div>
               <div className="col-md-2" id="search-bar-properties">
