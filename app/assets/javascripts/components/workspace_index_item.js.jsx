@@ -36,9 +36,10 @@
                 {filled}
                 {empty}
               </div>
-              <div className="col-md-2">
-                <div> Overall: {workspace.overall} </div>
-                <div> Seating: {workspace.seating} </div>
+              <div className="col-md-3">
+                <br/>
+                <div> {workspace.street_address} </div>
+                <div> {workspace.city_address}</div>
               </div>
             </div>
           </div>

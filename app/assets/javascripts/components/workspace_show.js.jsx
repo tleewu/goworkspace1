@@ -40,6 +40,28 @@
     },
 
     render: function () {
+      var workspace = this.state.workspace;
+      var idx = 1;
+      var empty = [];
+      var filled = [];
+
+      while (idx <= workspace.overall) {
+        filled.push(<span className="glyphicon glyphicon-star"></span>);
+        idx += 1;
+      }
+
+      while (idx <= 5) {
+        empty.push(<span className="glyphicon glyphicon-star-empty"> </span>)
+        idx += 1;
+      }
+
+      var currentDay = new Date().getDay();
+      var workspaceHours;
+      if (currentDay !== 0 && currentDay !== 7) {
+        workspaceHours = <div> Open today from {workspace.weekday_opening} until {workspace.weekday_closing} </div>
+      } else {
+        workspaceHours = <div> Open today from {workspace.weekend_opening} until {workspace.weekend_closing} </div>
+      }
       return (
         <div>
           <div className="container">
@@ -58,11 +80,16 @@
               <div className="row">
                 <div className="col-md-2 col-md-offset-5" id="workspace-title">
                   <div id="workspace-info-name"> {this.state.workspace.name} </div>
-                  <div> Overall: {this.state.workspace.overall} </div>
-                  <div> Wifi: {this.state.workspace.wifi} </div>
-                  <div> Power: {this.state.workspace.power} </div>
-                  <div> Seating: {this.state.workspace.seating} </div>
-                  <div> Pricing: {this.state.workspace.seating} </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-4 col-md-offset-4">
+                  {this.state.workspace.street_address}, {this.state.workspace.city_address}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-4 col-md-offset-4">
+                  {workspaceHours}
                 </div>
               </div>
               <br/><br/>
