@@ -6,6 +6,7 @@
           <div id = "user-form-content">
             <%= auth_token %><br>
             <div id="login-title">Find Your Perfect Workspace</div>
+            <br>
             <div style="color: red"> <%= @errors %> </div><br>
             <div class = "form-group">
               <input type="text" class="input-large" name="user[email]" placeholder="Email" value="<%= @user.email %>">
