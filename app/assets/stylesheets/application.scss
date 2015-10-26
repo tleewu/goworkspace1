@@ -8,6 +8,13 @@ body {
   background-repeat: no-repeat;
 }
 
+#logout {
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
 .slick-track span {
   display: none;
 }
@@ -281,13 +288,22 @@ hr {
 }
 
 .dropdown-menu {
+  border-radius: 0px;
+  height: 40px;
   min-width: 0px;
+  width: 100%;
+  margin-right: -15px;
   text-align: center;
   border: 1px solid gray;
+  margin-top: -1px;
+  padding-top: 14px;
+  &:hover {
+    background-color: #f0f0f0;
+  }
 }
 
 .open > .dropdown-menu {
-  width: 110%;
+  width: 115%;
 }
 
 .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {

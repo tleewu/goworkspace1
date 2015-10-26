@@ -36,7 +36,7 @@
               <img src={this.state.currentUser.profile_image_url} className='img-circle' height="37px" width="37px" id='profile-image' />
             </button>
             <ul className="dropdown-menu col-md-1" aria-labelledby="dropdownMenu1">
-              <li onClick={this.logout}> Logout </li>
+              <li onClick={this.logout} id="logout"> LOGOUT </li>
             </ul>
           </div>
         </div>
