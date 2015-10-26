@@ -41,25 +41,8 @@
                       {review.user.location}
                       {deleteReview}
                     </div>
-                    <div className="col-md-8" id="review-body">
-                        <div className="col-md-2 col-md-offset-1">
-                          Overall: {review.overall}
-                        </div>
-                        <div className="col-md-2">
-                          Wifi: {review.wifi}
-                        </div>
-                        <div className="col-md-2">
-                          Outlets: {review.power}
-                        </div>
-                        <div className="col-md-2">
-                          Seating: {review.seating}
-                        </div>
-                        <div className="col-md-2">
-                          Pricing: {review.pricing}
-                        </div>
-
-                        {review.body}
-
+                    <div className="col-md-8">
+                      {review.body}
                     </div>
                   </div>
                 );

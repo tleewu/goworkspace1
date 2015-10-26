@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021012803) do
+ActiveRecord::Schema.define(version: 20151026080937) do
 
   create_table "images", force: :cascade do |t|
     t.string   "url",            null: false
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 20151021012803) do
     t.integer  "num_seating_ratings", default: 0,                                                null: false
     t.integer  "num_pricing_ratings", default: 0,                                                null: false
     t.string   "profile_image_url",   default: "http://www.drodd.com/images12/happy-face15.jpg"
+    t.string   "street_address",      default: "874 Fell Street"
+    t.string   "city_address",        default: "San Francisco, CA 94117"
   end
 
 end

@@ -15,15 +15,12 @@
             <% end %>
 
             <div class = "form-group">
-              <input type="text" name="user[email]" class="input-large" placeholder="Email:" value= "<%= @user.email %>">
-            </div>
-
-            <div class = "form-group">
               <input type="text" class="input-large" name="user[first_name]" placeholder="First Name:" value= "<%= @user.first_name %>">
               <input type="text" class="input-large" name="user[last_name]" placeholder="Last Name:" value= "<%= @user.last_name %>">
             </div>
 
             <div class = "form-group">
+              <input type="text" name="user[email]" class="input-large" placeholder="Email:" value= "<%= @user.email %>">
               <input type="text" class="input-large" name="user[location]" placeholder="Location:" value= "<%= @user.location %>">
             </div>
 
@@ -34,7 +31,8 @@
             <div class = "form-group">
               <input type="text" id="opener" name="user[profile_image_url]" placeholder="Profile Pic" value= "<%= @user.profile_image_url %>">
             </div>
-
+            <a style="color:white" href="/session/new"> Already a user? </a>
+            <br><br>
             <button type="submit" class="btn btn-default">Register</button><br><br>
           </div>
         </form>
