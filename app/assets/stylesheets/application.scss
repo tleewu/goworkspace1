@@ -113,6 +113,26 @@ nav {
   }
 }
 
+.btn-default {
+  border-radius: 0px;
+  border: 0px;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+#login {
+  background-color: #e5b6bb;
+  &:hover {
+    background-color: #f08080;
+  }
+}
+
+#guest-login {
+  background-color: cornflowerblue;
+  &:hover {
+    background-color: #4267B6;
+  }
+}
 hr {
   border-color: gray;
 }

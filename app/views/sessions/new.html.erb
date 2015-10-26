@@ -4,7 +4,6 @@
       <div class="col-md-6 col-md-offset-3 text-center">
         <form action="/session" method="POST" class="user-form">
           <div id = "user-form-content">
-
             <%= auth_token %><br>
             <h3 style="letter-spacing: 5px"> <b> LOGIN </b> </h3>
             <div style="color: red"> <%= @errors %> </div><br>
@@ -17,9 +16,17 @@
             </div>
             <a style="color:white" href="/users/new"> New to Workspace? </a>
             <br><br>
-            <button type="submit" class="btn btn-default">Login</button><br><br>
+            <button type="submit" class="btn btn-default" id="login">LOGIN</button>
+            <form action="/session" method="POST" class="user-form">
+              <%= auth_token %>
+              <input type="hidden" name="user[email]" placeholder="Email" value="guest@guest.com">
+              <input type="hidden" name="user[password]" placeholder = "Password" value="password">
+              <button type="submit" class="btn btn-default" id="guest-login">GUEST LOGIN</button><br><br>
+            </form>
+            <br>
           </div>
         </form>
+
       </div>
     </div>
   </div>
