@@ -61,6 +61,15 @@ nav {
   font-size: 1.8em;
 }
 
+#ratings-spacing-stars {
+  margin-top:10px;
+  font-size: 1.8em;
+}
+
+#ratings-spacing {
+  margin-top: 10px;
+}
+
 #overall-review-form {
   padding-bottom: 10px;
   position:relative;
@@ -91,6 +100,17 @@ nav {
   text-align: center;
   letter-spacing: 2px;
   margin-top: -20px;
+}
+
+#ratings-type {
+  letter-spacing: 2px;
+  text-align: center;
+  #rating-type {
+    display: none;
+  }
+  #rating-type-seating {
+    display: none;
+  }
 }
 
 hr {

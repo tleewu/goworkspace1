@@ -44,14 +44,24 @@
       var idx = 1;
       var empty = [];
       var filled = [];
+      var wifi = 1;
+      var power = 1;
+      var seating = 1;
+      var pricing = 1;
+      if (workspace.wifi) {
+        wifi = Math.round(workspace.wifi);
+        power = Math.round(workspace.power);
+        seating = Math.round(workspace.seating);
+        pricing = Math.round(workspace.pricing);
+      }
 
       while (idx <= workspace.overall) {
-        filled.push(<span className="glyphicon glyphicon-star"></span>);
+        filled.push(<span className="glyphicon glyphicon-star" id="ratings-spacing-stars"></span>);
         idx += 1;
       }
 
       while (idx <= 5) {
-        empty.push(<span className="glyphicon glyphicon-star-empty"> </span>)
+        empty.push(<span className="glyphicon glyphicon-star-empty" id="ratings-spacing-stars"> </span>)
         idx += 1;
       }
 
@@ -90,6 +100,36 @@
               <div className="row">
                 <div className="col-md-4 col-md-offset-4">
                   {workspaceHours}
+                </div>
+              </div>
+              <br/>
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="col-md-2 col-md-offset-1" id="ratings-type">
+                    OVERALL
+                    <br/>
+                    {filled}{empty}
+                  </div>
+                  <div className="col-md-2" id="ratings-type">
+                    WIFI
+                    <br/>
+                    <Wifi rating={wifi} />
+                  </div>
+                  <div className="col-md-2" id="ratings-type">
+                    OUTLETS
+                    <br />
+                    <Power rating={power} />
+                  </div>
+                  <div className="col-md-2" id="ratings-type">
+                    SEATING
+                    <br />
+                    <div id="ratings-spacing"> <Seating rating={seating} /> </div>
+                  </div>
+                  <div className="col-md-2" id="ratings-type">
+                    PRICING
+                    <br />
+                    <div id="ratings-spacing"> <Price rating={pricing} /> </div>
+                  </div>
                 </div>
               </div>
               <br/><br/>
