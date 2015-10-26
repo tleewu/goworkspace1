@@ -37,11 +37,11 @@
     render: function () {
       var next, back;
       if (this.state.maxSet !== this.state.currentSet) {
-        next = <div onClick={this.handleNextClick}> Next </div>;
+        next = <div id="next-back-link" onClick={this.handleNextClick}> NEXT </div>;
       }
 
       if (this.state.currentSet !== 0) {
-        back = <div onClick={this.handleBackClick}> Back </div>;
+        back = <div id="next-back-link" onClick={this.handleBackClick}> BACK </div>;
       }
 
       return (
@@ -55,12 +55,11 @@
               })
             }
           </div>
-
-          <div>
-            {next}
-          </div>
-          <div>
-            {back}
+          <br/>
+          <div id="ratings">
+            <br/>
+            {back}  {next}
+             <br/>
           </div>
         </div>
       );
