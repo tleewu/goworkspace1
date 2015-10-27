@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026080937) do
+ActiveRecord::Schema.define(version: 20151027021251) do
 
   create_table "images", force: :cascade do |t|
     t.string   "url",            null: false
@@ -49,16 +49,6 @@ ActiveRecord::Schema.define(version: 20151026080937) do
     t.datetime "updated_at",                                                                                                              null: false
     t.string   "profile_image_url", default: "http://res.cloudinary.com/goworkspace/image/upload/v1445202159/default_profile_gnluy2.jpg"
   end
-
-  create_table "workspace_images", force: :cascade do |t|
-    t.string   "url",          null: false
-    t.integer  "workspace_id", null: false
-    t.integer  "user_id",      null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "workspace_images", ["user_id", "workspace_id"], name: "index_workspace_images_on_user_id_and_workspace_id"
 
   create_table "workspaces", force: :cascade do |t|
     t.string   "name",                                                                           null: false

@@ -153,7 +153,6 @@
                   <ReviewForm currentUser={this.state.currentUser} createReview={this._createReview} />
                   <hr />
                   <ReviewIndex allReviews={this.state.reviews} currentUser={this.state.currentUser}/>
-                  <hr />
                 </div>
               </div>
            </div>

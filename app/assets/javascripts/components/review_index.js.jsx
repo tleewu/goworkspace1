@@ -43,7 +43,10 @@
                     </div>
                     <div className="col-md-8">
                       {review.body}
+                      <br />
+                      <hr />
                     </div>
+
                   </div>
                 );
               })

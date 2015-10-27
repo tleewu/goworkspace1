@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-  before_action :ensure_not_logged_in, only: [:new]
-
   def new
     @user = User.new
   end
