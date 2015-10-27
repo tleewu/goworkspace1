@@ -47,7 +47,7 @@ Image.create!({url: "http://s3-media4.fl.yelpcdn.com/bphoto/zNdyaWqFtZCIjJ5MTCZi
 Image.create!({url: "http://s3-media2.fl.yelpcdn.com/bphoto/4mxx9W_4wKvvLFPR3n4_Ug/o.jpg",
               imageable_type: "Workspace", imageable_id: 2})
 
-Workspace.create!({name: 'Celtic Coffee Company', lat: 37.780848, lng: -122.414516, street_address: "142 McAllister St.",
+Workspace.create!({name: 'Celtic Coffee', lat: 37.780848, lng: -122.414516, street_address: "142 McAllister St.",
                   city_address: "San Francisco, CA 94102", weekday_opening: "06:30:00", weekday_closing:
                   "17:30:00", weekend_opening: "08:00:00", weekend_closing: "17:00:00",
                   overall: 5, wifi: 5, power: 5, seating: 4, pricing: 1,
