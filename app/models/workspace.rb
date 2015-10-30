@@ -36,8 +36,11 @@ class Workspace < ActiveRecord::Base
       self.num_pricing_ratings += value
     end
 
-    self[rating] = (num_rating_reviews * self[rating] + new_rating) / (num_rating_reviews + value)
-
+    if num_rating_reviews + value == 0
+      self[rating] = 0
+    else
+      self[rating] = (num_rating_reviews * self[rating] + new_rating) / (num_rating_reviews + value)
+    end
   end
 
   def self.update_ratings (parameters)
