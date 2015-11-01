@@ -1,9 +1,7 @@
 # Workspace
 Workspace is a crowdsourcing platform that connects people to the best cafes and workspaces around them. This web application is built with Ruby on Rails and React.js.
 
-Check it out [here] (https://www.gowork.space)
-
-I'd love to hear your suggestions and thoughts!
+Check it out live [here] (https://www.gowork.space). I'd love to hear your suggestions and thoughts!
 
 ### Main Functionality
 
