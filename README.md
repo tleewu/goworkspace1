@@ -6,12 +6,14 @@ Check it out live @ https://www.gowork.space
 I'd love to hear your suggestions and thoughts!
 
 ### Main Functionality
+
 * Search for workspaces by name and by location
 * Filter search results by wifi, outlets, pricing, seating, and open now
 * Submit reviews and interactively rate workspaces
 * Learn more about particular workspaces through crowd-sourced reviews
 
 ### Additional Functionality
+
 * Google Maps API integration
 * React.js consuming a RESTful JSON API and following a Flux architecture
 * Cloudinary API to upload profile pictures for users
@@ -69,6 +71,7 @@ queryForWorkspaces: function () {
 ```
 
 ### Features to be Implemented
+
 * Allow users to upload images for workspaces in their reviews
 * Animate the Google Maps markers. When hovering over a workspace, the Google Maps marker will bounce. The markers will be numbered by its search result order.
 * Show the distance from the queried location on search results.
