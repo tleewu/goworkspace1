@@ -62,7 +62,9 @@ var _filters = { workspaceName: null,
                 currentSet: 0
               };
 ```
+
 * Whenever the filter store changes, the SearchResultsIndex component will use the filters in the filter store to make an API call to the Rails backend, simplifying the structure of the application.
+
 ```
 queryForWorkspaces: function () {
   var filters = FilterStore.all();
