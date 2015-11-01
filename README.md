@@ -2,6 +2,7 @@
 Workspace is a crowdsourcing platform that connects people to the best cafes and workspaces around them. This web application is built with Ruby on Rails and React.js.
 
 Check it out live @ https://www.gowork.space
+
 I'd love to hear your suggestions and thoughts!
 
 ### Main Functionality
@@ -26,7 +27,7 @@ class String
   end
 end
 
-# ...
+...
 
 seed_data += "Workspace.create!({name: '" + workspace.name.remove_bad_characters +
                              "', lat: " + workspace.location.coordinate.latitude.to_s +
@@ -45,7 +46,7 @@ seed_data += "Workspace.create!({name: '" + workspace.name.remove_bad_characters
                       ":00:00', profile_image_url: '" + workspace.image_url +
                               "'}) \n"
 ```
-* Filter Store listens to a variety of change listeners, ranging from when a user wants to sort by wifi to when a user wants to search for workspaces in a new location. Here is the initial state of my filter store.
+* The Filter Store listens to a variety of change listeners, ranging from when a user wants to sort by wifi ratings to when a user wants to search in a new location. Here is the initial state of a filter store.
 
 ```
 var _filters = { workspaceName: null,
